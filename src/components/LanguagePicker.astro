@@ -1,0 +1,16 @@
+---
+// Language picker — currently hidden (French only)
+// Uncomment and use when English is added:
+// import { locales, defaultLocale } from '../i18n/config';
+// import { getLangFromUrl } from '../i18n/utils';
+// const lang = getLangFromUrl(Astro.url);
+---
+
+<!-- LanguagePicker hidden until English is enabled -->
+<!-- When adding English:
+  1. Add 'en' to locales in src/i18n/config.ts and astro.config.mjs
+  2. Create src/pages/en/ directory with translated pages
+  3. Remove the 'hidden' attribute below and uncomment the picker -->
+<div hidden aria-hidden="true">
+  <!-- Language picker placeholder -->
+</div>

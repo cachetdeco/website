@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+/* Custom fonts */
+@font-face {
+  font-family: 'Cocogoose';
+  src: url('/fonts/Cocogoose-Classic-Medium-trial.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geoform';
+  src: url('/fonts/Geoform-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geoform';
+  src: url('/fonts/Geoform.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Cachet brand palette — calibrated to logo */
+  --color-brand-dark:    #314732;  /* Dark Green — primary headings, nav */
+  --color-brand-mid:     #7a8876;  /* Light Green — accents, borders */
+  --color-brand-light:   #f0f4ef;  /* Very light green tint — backgrounds */
+  --color-brand-50:      #f0f4ef;
+  --color-brand-100:     #d6e2d4;
+  --color-brand-200:     #b8cdb5;
+  --color-brand-300:     #97b393;
+  --color-brand-400:     #7a8876;  /* Light Green */
+  --color-brand-500:     #5a6e58;
+  --color-brand-600:     #314732;  /* Dark Green — CTA buttons */
+  --color-brand-700:     #263a27;  /* Hover state */
+  --color-brand-800:     #1c2c1d;
+  --color-brand-900:     #131f13;
+
+  /* Neutral palette */
+  --color-gray-light:    #b7b6b6;
+  --color-gray-dark:     #444445;
+
+  /* Typography */
+  --font-display: 'Cocogoose', system-ui, sans-serif;
+  --font-body:    'Geoform', system-ui, sans-serif;
+  --font-sans:    'Geoform', system-ui, sans-serif;
+}
+
+/* Base layer */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-gray-dark);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--color-brand-600);
+    font-weight: 500;
+    line-height: 1.15;
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--color-brand-600);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Component layer */
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: var(--color-brand-600);
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-brand-700);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: transparent;
+    color: var(--color-brand-600);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+    border: 2px solid var(--color-brand-600);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-brand-600);
+    color: #ffffff;
+  }
+
+  .btn-outline-white {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: transparent;
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-outline-white:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-brand-600);
+    font-weight: 500;
+  }
+
+  .section-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: var(--color-gray-dark);
+    opacity: 0.8;
+    margin-top: 0.5rem;
+  }
+
+  .container-site {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .form-label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--color-brand-600);
+    margin-bottom: 0.375rem;
+    letter-spacing: 0.02em;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.6875rem 1rem;
+    border: 1.5px solid var(--color-brand-mid);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-gray-dark);
+    background-color: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+  }
+
+  .form-input:focus {
+    border-color: var(--color-brand-600);
+    box-shadow: 0 0 0 3px rgba(49, 71, 50, 0.12);
+  }
+
+  .form-input::placeholder {
+    color: var(--color-gray-light);
+  }
+}

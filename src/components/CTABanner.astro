@@ -1,0 +1,92 @@
+---
+import { getLangFromUrl, t } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<section class="cta-banner-section">
+  <div class="cta-banner-bg" aria-hidden="true"></div>
+  <div class="container-site cta-banner-inner">
+    <div class="cta-banner-text">
+      <h2 class="cta-banner-title">{t(lang, 'cta_banner.title')}</h2>
+      <p class="cta-banner-subtitle">{t(lang, 'cta_banner.subtitle')}</p>
+    </div>
+    <div class="cta-banner-action">
+      <a href="/soumission" class="btn-primary cta-banner-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14,2 14,8 20,8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        {t(lang, 'cta_banner.button')}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-banner-section {
+    position: relative;
+    background-color: var(--color-brand-600);
+    color: #ffffff;
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+
+  .cta-banner-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-brand-700) 0%, var(--color-brand-600) 50%, var(--color-brand-500) 100%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .cta-banner-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-banner-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-banner-subtitle {
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 520px;
+  }
+
+  .cta-banner-btn {
+    background-color: #ffffff;
+    color: var(--color-brand-600);
+    font-size: 1rem;
+    padding: 0.875rem 2rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .cta-banner-btn:hover {
+    background-color: var(--color-brand-50);
+  }
+
+  @media (max-width: 640px) {
+    .cta-banner-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cta-banner-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
