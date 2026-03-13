@@ -1,0 +1,23 @@
+---
+import Hero from '../components/Hero.astro';
+import ServicesPreview from '../components/ServicesPreview.astro';
+import WhyUs from '../components/WhyUs.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { getLangFromUrl, t } from '../i18n/utils';
+import general from '../content/settings/general.json';
+import BaseLayout2 from '@/layouts/BaseLayout-2.astro';
+const lang = getLangFromUrl(Astro.url);
+---
+
+<BaseLayout2
+  title="Peintres Décorateurs | Laval & Rive-Nord"
+  description={`${general.siteName} — Peintres décorateurs professionnels à Laval et sur la Rive-Nord. Peinture résidentielle et commerciale, décoration intérieure et extérieure. Soumission gratuite.`}
+  canonical="/"
+>
+
+  <Hero />
+  <ServicesPreview />
+  <WhyUs />
+  <CTABanner />
+</BaseLayout>
+

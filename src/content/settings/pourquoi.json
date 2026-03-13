@@ -1,0 +1,26 @@
+{
+  "title": "Pourquoi choisir Cachet?",
+  "subtitle": "Une expertise reconnue au service de votre satisfaction",
+  "cards": [
+    {
+      "icon": "shield",
+      "title": "Certifié RBQ",
+      "description": "Entrepreneur certifié par la Régie du Bâtiment du Québec (RBQ : 5839 8736 01). Travaux assurés et conformes aux normes."
+    },
+    {
+      "icon": "clock",
+      "title": "Ponctualité et fiabilité",
+      "description": "Nous respectons nos engagements. Les délais sont tenus et votre projet est livré à temps, selon les standards convenus."
+    },
+    {
+      "icon": "check",
+      "title": "Matériaux de qualité",
+      "description": "Nous utilisons exclusivement des peintures et produits de première qualité pour un résultat durable et esthétique."
+    },
+    {
+      "icon": "team",
+      "title": "Équipe professionnelle",
+      "description": "Nos peintres décorateurs sont formés et expérimentés. Chaque détail compte pour nous, de la préparation à la finition."
+    }
+  ]
+}

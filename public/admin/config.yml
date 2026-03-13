@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: cachetdeco   # REPLACE with your GitHub org/repo
+  repo: mbcube/cachetdeco   # REPLACE with your GitHub org/repo
   branch: main
   # For Cloudflare Pages (no Netlify Identity), use PKCE flow:
   auth_type: pkce
@@ -68,3 +68,28 @@ collections:
           - { name: "defaultDescription", label: "Description par défaut", widget: "text" }
           - { name: "keywords", label: "Mots-clés (séparés par virgule)", widget: "string" }
           - { name: "ogImage", label: "Image OG par défaut", widget: "image", required: false }
+
+      - label: "Section Pourquoi nous choisir"
+        name: "pourquoi"
+        file: "src/content/settings/pourquoi.json"
+        fields:
+          - { name: "title", label: "Titre de section", widget: "string" }
+          - { name: "subtitle", label: "Sous-titre de section", widget: "string" }
+          - name: "cards"
+            label: "Cartes d'avantages"
+            widget: "list"
+            min: 1
+            max: 6
+            fields:
+              - name: "icon"
+                label: "Icône"
+                widget: "select"
+                options:
+                  - { value: "shield", label: "Bouclier (certification)" }
+                  - { value: "clock", label: "Horloge (ponctualité)" }
+                  - { value: "check", label: "Crochet (qualité)" }
+                  - { value: "team", label: "Équipe (personnes)" }
+                  - { value: "star", label: "Étoile (excellence)" }
+                  - { value: "location", label: "Localisation (territoire)" }
+              - { name: "title", label: "Titre", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
