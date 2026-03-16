@@ -7,7 +7,7 @@ export const ui = {
     'nav.soumission': 'Soumission',
 
     // CTA
-    'cta.soumission': 'Demandez votre soumission',
+    'cta.soumission': 'Soumission gratuite',
     'cta.soumission.short': 'Soumission gratuite',
     'cta.contact': 'Nous contacter',
     'cta.learn_more': 'En savoir plus',
@@ -15,7 +15,7 @@ export const ui = {
     // Hero
     'hero.title': 'Peintres Décorateurs à votre service',
     'hero.subtitle': 'Travaux de peinture résidentielle et commerciale, décoration intérieure et extérieure. Qualité professionnelle sur la Rive-Nord et Laval.',
-    'hero.cta': 'Demandez votre soumission gratuite',
+    'hero.cta': 'Soumission gratuite',
 
     // Services section
     'services.title': 'Nos Services',
@@ -26,8 +26,8 @@ export const ui = {
     // CTA Banner
     'cta_banner.title': 'Prêt à transformer votre espace?',
     'cta_banner.subtitle': 'Obtenez une soumission gratuite et sans engagement dès aujourd\'hui.',
-    'cta_banner.button': 'Demandez votre soumission',
-
+    'cta_banner.button': 'Soumission gratuite',
+    
     // Contact page
     'contact.title': 'Contactez-nous',
     'contact.subtitle': 'Nous sommes à votre disposition pour répondre à vos questions.',
