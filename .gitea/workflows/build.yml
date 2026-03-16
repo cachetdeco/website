@@ -1,32 +1,17 @@
-name: Build
-
-on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest  # Runner must have Docker socket mounted
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
+      - run: npm ci && npm run build
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist/
+      - name: Build and run container
+        run: |
+          docker build -t cachetdeco:latest .
+          docker stop cachetdeco 2>/dev/null || true
+          docker rm cachetdeco 2>/dev/null || true
+          docker run -d --name cachetdeco -p 30001:80 --restart unless-stopped cachetdeco:latest
