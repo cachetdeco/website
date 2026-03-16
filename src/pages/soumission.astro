@@ -5,8 +5,9 @@ import { getLangFromUrl, t } from '../i18n/utils';
 import general from '../content/settings/general.json';
 
 const lang = getLangFromUrl(Astro.url);
----
+return Astro.redirect('/404');
 
+---
 <BaseLayout
   title={t(lang, 'nav.soumission')}
   description="Demandez votre soumission gratuite pour vos travaux de peinture ou décoration à Laval et sur la Rive-Nord. Cachet Peintres Décorateurs vous répond rapidement."
@@ -256,3 +257,4 @@ const lang = getLangFromUrl(Astro.url);
     }
   }
 </style>
+

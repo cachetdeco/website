@@ -5,9 +5,9 @@ const lang = getLangFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  { href: '/', label: t(lang, 'nav.accueil') },
-  { href: '/services', label: t(lang, 'nav.services') },
-  { href: '/contact', label: t(lang, 'nav.contact') },
+  { href: '/landing-1', label: 'Landing 1' },
+  { href: '/landing-2', label: 'Landing 2' },
+  { href: '/landing-3', label: 'Landing 3' },
 ];
 
 function isActive(href: string): boolean {
