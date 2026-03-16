@@ -1,7 +1,30 @@
 ---
-return Astro.redirect('/landing-1');
+import Hero from '../components/Hero.astro';
+import ServicesPreview from '../components/ServicesPreview.astro';
+import WhyUs from '../components/WhyUs.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { getLangFromUrl, t } from '../i18n/utils';
+import general from '../content/settings/general.json';
+import BaseLayout from '@/layouts/BaseLayout.astro'; 
+import Header from '../components/Header.astro';
+import Testimonials from '../components/ui/testimonials/Grid';
+import Footer from '../components/Footer.astro';
+const lang = getLangFromUrl(Astro.url);
 
 ---
-<!-- <a href="/landing-1">Landing 1</a>
-<a href="/landing-2">Landing 2</a>  
-<a href="/landing-3">Landing 3</a> -->
+
+<BaseLayout
+  title="Peintres Décorateurs | Laval & Rive-Nord"
+  description={`${general.siteName} — Peintres décorateurs professionnels à Laval et sur la Rive-Nord. Peinture résidentielle et commerciale, décoration intérieure et extérieure. Soumission gratuite.`}
+  canonical="/"
+>
+  <Header />
+  <Hero />
+  <ServicesPreview />
+  <WhyUs />
+  <Testimonials client:load />
+  <CTABanner />
+  <Footer />
+
+</BaseLayout>
+
