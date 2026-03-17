@@ -12,13 +12,13 @@ function getIconPath(icon: string): string {
   return iconPaths[icon] ?? iconPaths.check
 }
 
-export interface PorquoiCard {
+export interface PourquoiCard {
   icon: string
   title: string
   description: string
 }
 
-export interface PorquoiImages {
+export interface PourquoiImages {
   main: string
   mainAlt: string
   detail1: string
@@ -30,8 +30,8 @@ export interface PorquoiImages {
 interface WithTieredImagesProps {
   title: string
   subtitle: string
-  cards: PorquoiCard[]
-  images: PorquoiImages
+  cards: PourquoiCard[]
+  images: PourquoiImages
 }
 
 export default function WithTieredImages({

@@ -71,7 +71,7 @@ export default function Grid() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-base/7 font-semibold text-brand-400 dark:text-brand-400">Témoignages</h2>
           <p className="mt-2 text-4xl font-semibold tracking-tight text-balance text-brand-600 sm:text-5xl dark:text-white">
-           Se que nos clients disent de nous
+           Ce que nos clients disent de nous
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4 dark:text-gray-100">

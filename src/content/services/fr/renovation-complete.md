@@ -21,4 +21,4 @@ Pour les projets de rénovation importants, Cachet Peintres Décorateurs coordon
 - Rénovations complètes de condos
 - Mises à jour de maisons avant vente
 - Rénovations post-construction
-- Remises en état locatifs
+- Remises en état locatives
