@@ -10,10 +10,11 @@ import photo2 from "@/assets/photos/the-attic-of-a-home-with-white-ceilings-and-
 import photo3 from "@/assets/photos/silver-and-white-apartment-interior-2023-11-27-05-32-03-utc.webp";
 import photo4 from "@/assets/photos/a-bedroom-with-white-walls-and-a-bed-and-a-2023-11-27-05-25-30-utc.webp";
 import photo5 from "@/assets/photos/empty-room-with-window-2023-11-27-05-08-12-utc.webp";
-
+import logo from "@/assets/cachet-hero-logo.svg";
 export type HeroContent = {
   pillCta: string;
   title: string;
+  title2: string;
   subtitle: string;
   cta: string;
   ctaHref: string;
@@ -28,13 +29,13 @@ const slides = [
 ];
 
 const autoplayPlugin = Autoplay({
-  delay: 5000,
+  delay: 4000,
   stopOnInteraction: false,
   stopOnMouseEnter: false,
 });
 
 export default function Hero({ content }: { content: HeroContent }) {
-  const { pillCta, title, subtitle, cta, ctaHref } = content;
+  const { pillCta, title, title2, subtitle, cta, ctaHref } = content;
 
   return (
     <div className="bg-white dark:bg-gray-900">
@@ -59,7 +60,7 @@ export default function Hero({ content }: { content: HeroContent }) {
         </Carousel>
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 h-full flex items-center justify-center pt-14">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-4xl text-center">
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
               <div className="flex flex-wrap items-center justify-center gap-2 gap-x-3.5 rounded-full px-4 py-2 text-sm/6 text-gray-300 ring-1 ring-white/20">
                 <span>RBQ {general.rbq}</span>
@@ -73,12 +74,19 @@ export default function Hero({ content }: { content: HeroContent }) {
                 <span>{pillCta}</span>
               </div>
             </div>
-            <h1
+            {/* <h1
               className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {title}
             </h1>
+            <h2
+              className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-6xl"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              {title2}
+            </h2> */}
+            <img src={logo.src} alt={general.siteName} className="w-full h-auto" />
             <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">
               {subtitle}
             </p>

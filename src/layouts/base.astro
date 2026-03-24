@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import { getLocale } from '@/lib/locale';
 import SEOHead from '@/components/seo-head.astro';
 import Header from '@/components/header';
+import Footer from '@/components/footer.astro';
 
 interface Props {
   title?: string;
@@ -40,5 +41,6 @@ const navigationItems = nav.links.map((link) => ({ name: link.name, href: link.h
     <main id="main-content">
       <slot />
     </main>
+    <Footer />
   </body>
 </html>

@@ -23,5 +23,7 @@
     "description": "Obtenez une estimation personnalisée et gratuite pour votre projet de peinture ou décoration.",
     "button": "Soumission gratuite"
   },
-  "breadcrumbHome": "Accueil"
+  "breadcrumbHome": "Accueil",
+  "rbq": "RBQ : ",
+  "neq": "NEQ : "
 }

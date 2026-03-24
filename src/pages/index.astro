@@ -8,7 +8,6 @@ import Hero from '@/components/ui/hero';
 import Services from '@/components/ui/services';
 import WhyChooseUs from '@/components/ui/why-choose-us';
 import CTABanner from '@/components/ui/cta-banner';
-import Footer from '@/components/footer.astro';
 import Testimonials from '@/components/ui/testimonials';
 
 const locale = getLocale(Astro);
@@ -70,6 +69,7 @@ const features = services.map((service) => {
 const heroContent = {
   pillCta: heroData.pillCta,
   title: heroData.title,
+  title2: heroData.title2,
   subtitle: heroData.subtitle,
   cta: heroData.cta,
   ctaHref: heroData.ctaHref,
@@ -114,5 +114,4 @@ const heroContent = {
     imageAlt={ctaData.imageAlt}
   />
 
-  <Footer />
 </Layout>

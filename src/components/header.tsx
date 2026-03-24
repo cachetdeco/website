@@ -3,6 +3,7 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import general from "../content/settings/general.json";
 
+
 export default function Header({
   navigation,
   ctaLabel,
@@ -23,24 +24,16 @@ export default function Header({
         <div className="flex lg:flex-1">
           <a
             href="/"
-            className="flex items-center bg-[white] rounded-3xl shadow-md 
-    ps-0.5 pe-2 pt-1 pb-0.5
-    md:ps-1 md:pe-3 md:pt-2 md:pb-1
-    
-    "
+            className="flex items-center justify-center bg-[white] rounded-full shadow-md p-2"
           >
-            <div className="p-1 bg-[white] rounded-full ">
+            <div className="rounded-full ">
               <span className="sr-only">{general.siteName}</span>
               <img
                 alt={general.siteName}
-                src="/images/logo.png"
-                className="h-10 w-auto"
+                src="/images/logo-vignette.svg"
+                className="h-10 w-10 object-fill"
               />
             </div>
-
-            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-brand-600 uppercase">
-              {general.brandName}
-            </p>
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -93,7 +86,7 @@ export default function Header({
                 <span className="sr-only">{general.siteName}</span>
                 <img
                   alt={general.siteName}
-                  src="/images/logo.png"
+                  src="/images/logo-vignette.svg"
                   className="h-10 w-auto"
                 />
               </div>

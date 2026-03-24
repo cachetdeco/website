@@ -42,6 +42,7 @@ const hero = defineCollection({
   schema: z.object({
     pillCta: z.string(),
     title: z.string(),
+    title2: z.string(),
     subtitle: z.string(),
     cta: z.string(),
     ctaHref: z.string(),
@@ -87,6 +88,8 @@ const contact = defineCollection({
       button: z.string(),
     }),
     breadcrumbHome: z.string(),
+    rbq: z.string(),
+    neq: z.string(),
   }),
 });
 
