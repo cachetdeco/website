@@ -1,0 +1,27 @@
+{
+  "title": "Contactez-nous",
+  "subtitle": "Nous sommes à votre disposition pour répondre à vos questions.",
+  "phone": "Téléphone",
+  "email": "Courriel",
+  "address": "Adresse",
+  "serviceAreaLabel": "Zone desservie :",
+  "hours": {
+    "title": "Heures d'ouverture",
+    "weekdays": { "day": "Lundi – Vendredi", "time": "7h00 – 18h00" },
+    "saturday": { "day": "Samedi", "time": "8h00 – 16h00" },
+    "sunday": { "day": "Dimanche", "time": "Fermé" }
+  },
+  "follow": "Suivez-nous",
+  "facebookCta": "Suivez-nous sur Facebook",
+  "map": {
+    "title": "Notre territoire de service",
+    "region": "Laval & Rive-Nord, Québec",
+    "mapsButton": "Voir sur Google Maps"
+  },
+  "ctaCard": {
+    "title": "Demandez votre soumission",
+    "description": "Obtenez une estimation personnalisée et gratuite pour votre projet de peinture ou décoration.",
+    "button": "Soumission gratuite"
+  },
+  "breadcrumbHome": "Accueil"
+}

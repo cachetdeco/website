@@ -1,64 +1,28 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getLangFromUrl, t } from '../i18n/utils';
+import Layout from '@/layouts/base.astro';
+import { getCollection } from 'astro:content';
+import { getLocale } from '@/lib/locale';
 
-const lang = getLangFromUrl(Astro.url);
+const locale = getLocale(Astro);
+const [entry] = await getCollection('notFound', (e) => e.id === `${locale}/main`);
+if (!entry) throw new Error(`Missing not-found content for locale: ${locale}`);
+
+const notFound = entry.data;
 ---
 
-<BaseLayout
-  title={t(lang, '404.title')}
-  noindex={true}
->
+<Layout title={notFound.title} noindex={true}>
   <section class="not-found-section">
     <div class="container-site not-found-inner">
       <div class="not-found-number" aria-hidden="true">404</div>
-      <h1 class="not-found-title">{t(lang, '404.title')}</h1>
-      <p class="not-found-message">{t(lang, '404.message')}</p>
+      <h1 class="not-found-title">{notFound.title}</h1>
+      <p class="not-found-message">{notFound.message}</p>
       <a href="/" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
           <line x1="19" y1="12" x2="5" y2="12"/>
           <polyline points="12,19 5,12 12,5"/>
         </svg>
-        {t(lang, '404.home')}
+        {notFound.home}
       </a>
     </div>
   </section>
-</BaseLayout>
-
-<style>
-  .not-found-section {
-    padding: 6rem 0;
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-  }
-
-  .not-found-inner {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-  }
-
-  .not-found-number {
-    font-family: var(--font-display);
-    font-size: clamp(5rem, 15vw, 10rem);
-    font-weight: 500;
-    color: var(--color-brand-100);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
-  .not-found-title {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    color: var(--color-brand-600);
-  }
-
-  .not-found-message {
-    font-size: 1.0625rem;
-    color: var(--color-gray-dark);
-    opacity: 0.7;
-    max-width: 420px;
-  }
-</style>
+</Layout>

@@ -21,6 +21,16 @@
       "icon": "team",
       "title": "Équipe professionnelle",
       "description": "Nos peintres décorateurs sont formés et expérimentés. Chaque détail compte pour nous, de la préparation à la finition."
+    },
+    {
+      "icon": "location",
+      "title": "Localisation",
+      "description": "Nous sommes situés à Laval et sur la Rive-Nord. Nous pouvons vous accompagner dans vos projets de peinture et décoration."
+    },
+    {
+      "icon": "star",
+      "title": "Excellence",
+      "description": "Nous sommes une entreprise de peinture et décoration de qualité. Nous nous engageons à vous fournir un service de qualité."
     }
   ]
 }

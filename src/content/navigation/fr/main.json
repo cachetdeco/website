@@ -1,0 +1,22 @@
+{
+  "links": [
+    { "name": "Accueil", "href": "/" },
+    { "name": "Services", "href": "/services" },
+    { "name": "Contact", "href": "/contact" },
+    { "name": "Soumission", "href": "/soumission" }
+  ],
+  "cta": {
+    "label": "Soumission gratuite",
+    "href": "/soumission"
+  },
+  "servicesSection": {
+    "title": "Nos Services",
+    "subtitle": "Des solutions complètes en peinture et décoration",
+    "viewAll": "Voir tous nos services",
+    "empty": "Aucun service disponible pour le moment."
+  },
+  "pageTitles": {
+    "services": "Services",
+    "soumission": "Soumission"
+  }
+}

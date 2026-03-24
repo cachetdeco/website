@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import { getCollection } from 'astro:content';
+import { getLocale } from '@/lib/locale';
+import SEOHead from '@/components/seo-head.astro';
+import Header from '@/components/header';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  canonical?: string;
+  noindex?: boolean;
+  pageType?: 'website' | 'article';
+}
+
+const props = Astro.props;
+const locale = getLocale(Astro);
+
+const [navEntry] = await getCollection('navigation', (e) => e.id === `${locale}/main`);
+if (!navEntry) throw new Error(`Missing navigation content for locale: ${locale}`);
+
+const nav = navEntry.data;
+const navigationItems = nav.links.map((link) => ({ name: link.name, href: link.href }));
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <SEOHead {...props} />
+  </head>
+  <body>
+    <Header
+      navigation={navigationItems}
+      ctaLabel={nav.cta.label}
+      ctaHref={nav.cta.href}
+      client:load
+    />
+    <main id="main-content">
+      <slot />
+    </main>
+  </body>
+</html>

@@ -39,6 +39,283 @@ collections:
       - { name: "featured", label: "Mis en vedette", widget: "boolean", default: false, i18n: duplicate }
       - { name: "body", label: "Contenu détaillé", widget: "markdown", i18n: true }
 
+  - name: "navigation"
+    label: "Navigation"
+    label_singular: "Navigation"
+    folder: "src/content/navigation"
+    format: json
+    create: false
+    delete: false
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - name: "links"
+        label: "Liens"
+        widget: "list"
+        i18n: true
+        fields:
+          - { name: "name", label: "Libellé", widget: "string" }
+          - { name: "href", label: "URL", widget: "string" }
+      - name: "cta"
+        label: "Bouton CTA (header)"
+        widget: "object"
+        i18n: true
+        fields:
+          - { name: "label", label: "Libellé", widget: "string" }
+          - { name: "href", label: "Lien", widget: "string" }
+      - name: "servicesSection"
+        label: "Bloc Services (accueil)"
+        widget: "object"
+        i18n: true
+        fields:
+          - { name: "title", label: "Titre", widget: "string" }
+          - { name: "subtitle", label: "Sous-titre", widget: "string" }
+          - { name: "viewAll", label: "Voir tout (libellé)", widget: "string" }
+          - { name: "empty", label: "Message liste vide", widget: "string" }
+      - name: "pageTitles"
+        label: "Titres de page (meta)"
+        widget: "object"
+        i18n: true
+        fields:
+          - { name: "services", label: "Page Services", widget: "string" }
+          - { name: "soumission", label: "Page Soumission", widget: "string" }
+
+  - name: "hero"
+    label: "Hero (accueil)"
+    label_singular: "Hero"
+    folder: "src/content/hero"
+    format: json
+    create: false
+    delete: false
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "pillCta", label: "Texte pastille (CTA)", widget: "string", i18n: true }
+      - { name: "title", label: "Titre principal", widget: "string", i18n: true }
+      - { name: "subtitle", label: "Sous-titre", widget: "text", i18n: true }
+      - { name: "cta", label: "Bouton principal", widget: "string", i18n: true }
+      - { name: "ctaHref", label: "Lien du bouton", widget: "string", i18n: duplicate }
+
+  - name: "cta"
+    label: "Bannière CTA"
+    label_singular: "Bannière CTA"
+    folder: "src/content/cta"
+    format: json
+    create: false
+    delete: false
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Titre", widget: "string", i18n: true }
+      - { name: "subtitle", label: "Sous-titre", widget: "text", i18n: true }
+      - { name: "button", label: "Libellé du bouton", widget: "string", i18n: true }
+      - { name: "buttonHref", label: "Lien du bouton", widget: "string", i18n: duplicate }
+      - { name: "imageAlt", label: "Texte alternatif image", widget: "string", i18n: true }
+
+  - name: "contact"
+    label: "Page Contact"
+    label_singular: "Contact"
+    folder: "src/content/contact"
+    format: json
+    create: false
+    delete: false
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Titre", widget: "string", i18n: true }
+      - { name: "subtitle", label: "Sous-titre", widget: "text", i18n: true }
+      - { name: "phone", label: "Libellé téléphone", widget: "string", i18n: true }
+      - { name: "email", label: "Libellé courriel", widget: "string", i18n: true }
+      - { name: "address", label: "Libellé adresse", widget: "string", i18n: true }
+      - { name: "serviceAreaLabel", label: "Libellé zone desservie", widget: "string", i18n: true }
+      - name: "hours"
+        label: "Heures"
+        widget: "object"
+        i18n: true
+        fields:
+          - { name: "title", label: "Titre section", widget: "string" }
+          - name: "weekdays"
+            label: "Semaine"
+            widget: "object"
+            fields:
+              - { name: "day", label: "Jours", widget: "string" }
+              - { name: "time", label: "Heures", widget: "string" }
+          - name: "saturday"
+            label: "Samedi"
+            widget: "object"
+            fields:
+              - { name: "day", label: "Jour", widget: "string" }
+              - { name: "time", label: "Heures", widget: "string" }
+          - name: "sunday"
+            label: "Dimanche"
+            widget: "object"
+            fields:
+              - { name: "day", label: "Jour", widget: "string" }
+              - { name: "time", label: "Heures", widget: "string" }
+      - { name: "follow", label: "Réseaux (titre)", widget: "string", i18n: true }
+      - { name: "facebookCta", label: "Lien Facebook (texte)", widget: "string", i18n: true }
+      - name: "map"
+        label: "Carte"
+        widget: "object"
+        i18n: true
+        fields:
+          - { name: "title", label: "Titre", widget: "string" }
+          - { name: "region", label: "Région", widget: "string" }
+          - { name: "mapsButton", label: "Bouton Google Maps", widget: "string" }
+      - name: "ctaCard"
+        label: "Encadré soumission"
+        widget: "object"
+        i18n: true
+        fields:
+          - { name: "title", label: "Titre", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
+          - { name: "button", label: "Bouton", widget: "string" }
+      - { name: "breadcrumbHome", label: "Fil d'Ariane — Accueil", widget: "string", i18n: true }
+
+  - name: "soumission"
+    label: "Page Soumission & formulaire"
+    label_singular: "Soumission"
+    folder: "src/content/soumission"
+    format: json
+    create: false
+    delete: false
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "pageTitle", label: "Titre court (breadcrumb)", widget: "string", i18n: true }
+      - { name: "title", label: "Titre H1", widget: "string", i18n: true }
+      - { name: "subtitle", label: "Sous-titre", widget: "text", i18n: true }
+      - name: "form"
+        label: "Formulaire"
+        widget: "object"
+        i18n: true
+        fields:
+          - { name: "ariaLabel", label: "Aria-label formulaire", widget: "string" }
+          - { name: "nom", label: "Libellé nom", widget: "string" }
+          - { name: "nomPlaceholder", label: "Placeholder nom", widget: "string" }
+          - { name: "courriel", label: "Libellé courriel", widget: "string" }
+          - { name: "courrielPlaceholder", label: "Placeholder courriel", widget: "string" }
+          - { name: "telephone", label: "Libellé téléphone", widget: "string" }
+          - { name: "telephonePlaceholder", label: "Placeholder téléphone", widget: "string" }
+          - { name: "adresse", label: "Libellé adresse travaux", widget: "string" }
+          - { name: "adressePlaceholder", label: "Placeholder adresse", widget: "string" }
+          - { name: "typeService", label: "Libellé type de service", widget: "string" }
+          - { name: "typeServicePlaceholder", label: "Placeholder sélection", widget: "string" }
+          - name: "typeServiceOptions"
+            label: "Options type de service"
+            widget: "object"
+            fields:
+              - { name: "interieur", label: "Intérieur", widget: "string" }
+              - { name: "exterieur", label: "Extérieur", widget: "string" }
+              - { name: "commercial", label: "Commercial", widget: "string" }
+              - { name: "decoration", label: "Décoration", widget: "string" }
+              - { name: "autre", label: "Autre", widget: "string" }
+          - { name: "message", label: "Libellé message", widget: "string" }
+          - { name: "messagePlaceholder", label: "Placeholder message", widget: "text" }
+          - { name: "envoyer", label: "Bouton envoyer", widget: "string" }
+          - { name: "sending", label: "État envoi", widget: "string" }
+          - { name: "successTitle", label: "Succès — titre", widget: "string" }
+          - { name: "successMessage", label: "Succès — message", widget: "text" }
+          - { name: "errorTitle", label: "Erreur — titre", widget: "string" }
+          - { name: "errorMessage", label: "Erreur — message", widget: "text" }
+          - name: "validation"
+            label: "Messages validation"
+            widget: "object"
+            fields:
+              - { name: "nom", label: "Nom", widget: "string" }
+              - { name: "courriel", label: "Courriel", widget: "string" }
+              - { name: "telephone", label: "Téléphone", widget: "string" }
+              - { name: "typeService", label: "Type service", widget: "string" }
+              - { name: "message", label: "Message", widget: "string" }
+      - name: "sidebar"
+        label: "Barre latérale"
+        widget: "object"
+        i18n: true
+        fields:
+          - { name: "processTitle", label: "Titre processus", widget: "string" }
+          - name: "steps"
+            label: "Étapes"
+            widget: "list"
+            i18n: true
+            fields:
+              - { name: "title", label: "Titre", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
+          - { name: "directContactTitle", label: "Contact direct (titre)", widget: "string" }
+          - { name: "rbqLabel", label: "Libellé RBQ", widget: "string" }
+      - { name: "breadcrumbHome", label: "Fil d'Ariane — Accueil", widget: "string", i18n: true }
+
+  - name: "footer"
+    label: "Pied de page"
+    label_singular: "Footer"
+    folder: "src/content/footer"
+    format: json
+    create: false
+    delete: false
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "tagline", label: "Slogan", widget: "string", i18n: true }
+      - { name: "navTitle", label: "Titre colonne navigation", widget: "string", i18n: true }
+      - { name: "servicesTitle", label: "Titre colonne services", widget: "string", i18n: true }
+      - { name: "contactTitle", label: "Titre colonne contact", widget: "string", i18n: true }
+      - { name: "legal", label: "Mention légale (utiliser {year})", widget: "string", i18n: true }
+      - { name: "rbq", label: "Ligne RBQ", widget: "string", i18n: true }
+      - { name: "neq", label: "Ligne NEQ", widget: "string", i18n: true }
+      - { name: "facebookLabel", label: "Libellé Facebook", widget: "string", i18n: true }
+      - name: "serviceLinks"
+        label: "Liens services (pied)"
+        widget: "list"
+        i18n: true
+        fields:
+          - { name: "label", label: "Libellé", widget: "string" }
+          - { name: "href", label: "URL", widget: "string" }
+
+  - name: "not_found"
+    label: "Page 404"
+    label_singular: "404"
+    folder: "src/content/not-found"
+    format: json
+    create: false
+    delete: false
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Titre", widget: "string", i18n: true }
+      - { name: "message", label: "Message", widget: "text", i18n: true }
+      - { name: "home", label: "Lien retour accueil", widget: "string", i18n: true }
+
+  - name: "pourquoi"
+    label: "Pourquoi nous choisir"
+    label_singular: "Pourquoi"
+    folder: "src/content/pourquoi"
+    format: json
+    create: false
+    delete: false
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Titre de section", widget: "string", i18n: true }
+      - { name: "subtitle", label: "Sous-titre", widget: "string", i18n: true }
+      - name: "cards"
+        label: "Cartes d'avantages"
+        widget: "list"
+        min: 1
+        max: 8
+        i18n: true
+        fields:
+          - name: "icon"
+            label: "Icône"
+            widget: "select"
+            options:
+              - { value: "shield", label: "Bouclier (certification)" }
+              - { value: "clock", label: "Horloge (ponctualité)" }
+              - { value: "check", label: "Crochet (qualité)" }
+              - { value: "team", label: "Équipe (personnes)" }
+              - { value: "star", label: "Étoile (excellence)" }
+              - { value: "location", label: "Localisation (territoire)" }
+          - { name: "title", label: "Titre", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
+
   - name: "settings"
     label: "Paramètres du site"
     files:
@@ -68,28 +345,3 @@ collections:
           - { name: "defaultDescription", label: "Description par défaut", widget: "text" }
           - { name: "keywords", label: "Mots-clés (séparés par virgule)", widget: "string" }
           - { name: "ogImage", label: "Image OG par défaut", widget: "image", required: false }
-
-      - label: "Section Pourquoi nous choisir"
-        name: "pourquoi"
-        file: "src/content/settings/pourquoi.json"
-        fields:
-          - { name: "title", label: "Titre de section", widget: "string" }
-          - { name: "subtitle", label: "Sous-titre de section", widget: "string" }
-          - name: "cards"
-            label: "Cartes d'avantages"
-            widget: "list"
-            min: 1
-            max: 6
-            fields:
-              - name: "icon"
-                label: "Icône"
-                widget: "select"
-                options:
-                  - { value: "shield", label: "Bouclier (certification)" }
-                  - { value: "clock", label: "Horloge (ponctualité)" }
-                  - { value: "check", label: "Crochet (qualité)" }
-                  - { value: "team", label: "Équipe (personnes)" }
-                  - { value: "star", label: "Étoile (excellence)" }
-                  - { value: "location", label: "Localisation (territoire)" }
-              - { name: "title", label: "Titre", widget: "string" }
-              - { name: "description", label: "Description", widget: "text" }

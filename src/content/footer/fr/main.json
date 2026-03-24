@@ -1,0 +1,16 @@
+{
+  "tagline": "Peintres Décorateurs professionnels",
+  "navTitle": "Navigation",
+  "servicesTitle": "Nos services",
+  "contactTitle": "Contact",
+  "legal": "© {year} 9500-5609 Québec Inc. Tous droits réservés.",
+  "rbq": "RBQ : 5839 8736 01",
+  "neq": "NEQ : 9500-5609",
+  "facebookLabel": "Facebook",
+  "serviceLinks": [
+    { "label": "Peinture intérieure", "href": "/services#peinture-interieure" },
+    { "label": "Peinture extérieure", "href": "/services#peinture-exterieure" },
+    { "label": "Peinture commerciale", "href": "/services#peinture-commerciale" },
+    { "label": "Décoration intérieure", "href": "/services#decoration-interieure" }
+  ]
+}
