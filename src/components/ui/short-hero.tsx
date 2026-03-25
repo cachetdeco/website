@@ -15,7 +15,7 @@ interface ContactHeroContent {
           <div className="absolute inset-0 mx-auto overflow-hidden">
             <img
               alt={imageAlt}
-              src="/images/empty-room-blue-wall-with-moulding-and-parquet-fl-2023-11-27-04-52-31-utc.webp"
+              src={imageSrc}
               className="size-full object-cover"
             />
           </div>

@@ -179,17 +179,9 @@ export default function SubmissionForm({ imageSrc, imageAlt, title, subtitle, fo
   const totalSize = uploadedFiles.reduce((sum, f) => sum + f.size, 0);
 
   return (
-    <div className="relative flex flex-col bg-brand-50 dark:bg-brand-900">
-      <div className="order-2 lg:absolute lg:inset-0 lg:left-1/2">
-        <img
-          src={imageSrc}
-          alt={imageAlt}
-          className="h-64 w-full bg-brand-50 object-cover sm:h-80 lg:absolute lg:h-full dark:bg-brand-900"
-        />
-      </div>
-      <div className="order-1 pt-8 pb-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2">
-        <div className="px-6 lg:px-8">
-          <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+    <div className="bg-brand-50 dark:bg-brand-900 lg:grid lg:grid-cols-2">
+      <div className="px-6 pt-8 pb-16 lg:px-6 lg:pt-8 lg:pb-16">
+        <div className="mx-auto max-w-lg">
             {submitStatus === "success" ? (
               <div className="mt-16 flex flex-col items-center gap-4 rounded-2xl bg-green-50 p-10 text-center ring-1 ring-green-200 dark:bg-green-900/20 dark:ring-green-500/30">
                 <CheckCircleIcon className="h-12 w-12 text-green-500" />
@@ -414,6 +406,13 @@ export default function SubmissionForm({ imageSrc, imageAlt, title, subtitle, fo
             )}
           </div>
         </div>
+
+      <div className="relative hidden lg:block">
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
       </div>
     </div>
   );

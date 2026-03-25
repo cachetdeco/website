@@ -28,30 +28,34 @@ const ctaData = ctaEntry.data;
 const pourquoiData = pourquoiEntry.data;
 const testimonialsData = testimonialsEntry.data;
 
-const ctaImage = (await import('@/assets/Website Content/Photos/cozy-modern-kitchen-room-interior-design-with-dark-2024-04-01-23-13-59-utc.webp')).default;
+const ctaImage = 
+{
+  src: '/images/landing-cta.webp',
+  alt: 'Peintres décorateurs au travail',
+};
 
 const allServices = await getCollection('services', (s) => s.id.startsWith(`${locale}/`));
 const services = allServices.sort((a, b) => a.data.order - b.data.order);
 
-const serviceImages: Record<string, { src: import('astro').ImageMetadata; alt: string }> = {
+const serviceImages: Record<string, { src: string; alt: string }> = {
   interior: {
-    src: (await import('@/assets/photos/empty-room-blue-wall-with-moulding-and-parquet-fl-2023-11-27-04-52-31-utc.webp')).default,
+    src: '/images/services-1.webp',
     alt: 'Salon avec peinture intérieure soignée',
   },
   exterior: {
-    src: (await import('@/assets/Website Content/Photos/wooden-deck-with-sky-2023-11-27-05-29-44-utc.webp')).default,
+    src: '/images/services-2.webp',
     alt: 'Maison avec peinture extérieure',
   },
   commercial: {
-    src: (await import('@/assets/Website Content/Photos/minimalist-bright-office-room-interior-design-mee-2023-11-27-05-17-04-utc.webp')).default,
+    src: '/images/services-3.webp',
     alt: 'Espace commercial peint',
   },
   decoration: {
-    src: (await import('@/assets/Website Content/Photos/Mural_Jerkspot_02.jpg')).default,
+    src: '/images/services-4.webp',
     alt: 'Décoration intérieure et murale',
   },
   renovation: {
-    src: (await import('@/assets/Website Content/Photos/amazing-design-of-a-room-with-doors-and-parquet-fl-2023-11-27-05-33-04-utc.webp')).default,
+    src: '/images/services-5.webp',
     alt: 'Rénovation et finitions',
   },
 };
@@ -59,11 +63,10 @@ const serviceImages: Record<string, { src: import('astro').ImageMetadata; alt: s
 const features = services.map((service) => {
   const icon = service.data.icon ?? 'interior';
   const img = serviceImages[icon] ?? serviceImages.interior;
-  const imageSrc = (img.src as import('astro').ImageMetadata).src;
   return {
     name: service.data.title,
     description: service.data.description,
-    imageSrc,
+    imageSrc: img.src ,
     imageAlt: img.alt,
   };
 });

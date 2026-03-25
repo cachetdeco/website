@@ -5,11 +5,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import general from "../../content/settings/general.json";
-import photo1 from "@/assets/photos/empty-room-blue-wall-with-moulding-and-parquet-fl-2023-11-27-04-52-31-utc.webp";
-import photo2 from "@/assets/photos/the-attic-of-a-home-with-white-ceilings-and-white-2023-11-27-05-27-44-utc.webp";
-import photo3 from "@/assets/photos/silver-and-white-apartment-interior-2023-11-27-05-32-03-utc.webp";
-import photo4 from "@/assets/photos/a-bedroom-with-white-walls-and-a-bed-and-a-2023-11-27-05-25-30-utc.webp";
-import photo5 from "@/assets/photos/empty-room-with-window-2023-11-27-05-08-12-utc.webp";
+
 import logo from "@/assets/cachet-hero-logo.svg";
 
 export type HeroContent = {
@@ -21,11 +17,11 @@ export type HeroContent = {
 };
 
 const slides = [
-  { src: photo1.src, alt: "Peinture intérieure" },
-  { src: photo2.src, alt: "Décoration murale" },
-  { src: photo3.src, alt: "Finition de qualité" },
-  { src: photo4.src, alt: "Chambre" },
-  { src: photo5.src, alt: "Pièce lumineuse" },
+  { src: '/images/carrousel-1.webp', alt: "Peinture intérieure" },
+  { src: '/images/carrousel-2.webp', alt: "Décoration murale" },
+  { src: '/images/carrousel-3.webp', alt: "Finition de qualité" },
+  { src: '/images/carrousel-4.webp', alt: "Chambre" },
+  { src: '/images/carrousel-5.webp', alt: "Pièce lumineuse" },
 ];
 
 const autoplayPlugin = Autoplay({

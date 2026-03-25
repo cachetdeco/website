@@ -38,7 +38,7 @@ export default function Contact({
   const labelClass = 'block text-sm/6 font-semibold text-brand-dark dark:text-white'
 
   return (
-    <div className="relative isolate bg-white dark:bg-brand-900">
+    <div className="relative isolate bg-brand-50/50 dark:bg-brand-900">
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div className="relative px-6 pt-12 pb-20 lg:static">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
