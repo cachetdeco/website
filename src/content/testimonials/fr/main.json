@@ -1,0 +1,31 @@
+{
+  "sectionLabel": "Témoignages",
+  "title": "Ce que nos clients disent de nous",
+  "items": [
+    {
+      "key": "sylvie-gauthier",
+      "src": "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fsylvie.gauthier.73594%2Fposts%2Fpfbid0DHM1833TLKru4cbkTnZq3KLNHrSR8B8rQAgGosGzAbpGMccvLffoNmCLgEo8GUNPl&show_text=true&width=500",
+      "height": 208
+    },
+    {
+      "key": "jean-christophe-ali",
+      "src": "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fjean.christophe.ali.2025%2Fposts%2Fpfbid02qsqq2Rn4vRx1gCG3q5e5M2ByPXH6zMux59fWvotfsQxpuWyUh46TZuwCND9iKpwnl&show_text=true&width=500",
+      "height": 194
+    },
+    {
+      "key": "charlotte-lafrance",
+      "src": "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcharlotte.lafrance.CL%2Fposts%2Fpfbid026Jw7aer2r84q27kgcZ1PKg8q2sqKgZc6nJspP42CTEAU6ac8FF4Ptj8ap8XGh6Wl&show_text=true&width=500",
+      "height": 166
+    },
+    {
+      "key": "colin-griffin",
+      "src": "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcolin.griffin.165%2Fposts%2Fpfbid0iCA6hoF5X32gUJSBcDUiXP2hxhxzMmEiC5Att3CDDwFckrHa7yxyGiLBmXQhQBUFl&show_text=true&width=500",
+      "height": 222
+    },
+    {
+      "key": "hollowman-la-rock",
+      "src": "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fhollowman.la.rock%2Fposts%2Fpfbid0hPR3RpaSLZtZkgpaEzKsNKAF4hUeKbDzkicAZ9jsbCpXKRRsYD63C32rw78uvRoml&show_text=true&width=500",
+      "height": 170
+    }
+  ]
+}

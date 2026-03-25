@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/base.astro';
-import SoumissionForm from '@/components/submission-form.astro';
+import SubmissionForm from '@/components/submission';
+import ShortHero from '@/components/ui/short-hero';
 import { getCollection } from 'astro:content';
 import { getLocale } from '@/lib/locale';
 import general from '../content/settings/general.json';
@@ -8,75 +9,32 @@ import general from '../content/settings/general.json';
 const locale = getLocale(Astro);
 
 const [soumissionEntry] = await getCollection('soumission', (e) => e.id === `${locale}/main`);
-const [navEntry] = await getCollection('navigation', (e) => e.id === `${locale}/main`);
-if (!soumissionEntry || !navEntry) throw new Error(`Missing soumission content for locale: ${locale}`);
+  if (!soumissionEntry) throw new Error(`Missing soumission content for locale: ${locale}`);
 
 const soumission = soumissionEntry.data;
-const nav = navEntry.data;
-const homeLink = nav.links.find((l) => l.href === '/')?.name ?? soumission.breadcrumbHome;
-const soumissionNav = nav.links.find((l) => l.href === '/soumission');
 ---
 
 <Layout
-  title={nav.pageTitles.soumission}
-  description="Demandez votre soumission gratuite pour vos travaux de peinture ou décoration à Laval et sur la Rive-Nord. Cachet Peintres Décorateurs vous répond rapidement."
+  title={soumission.title}
+  description={`Contactez Cachet Peintres Décorateurs — ${general.phone} — ${general.email}. Nous servons Laval, la Rive-Nord et les environs.`}
   canonical="/soumission"
 >
-  <section class="page-header">
-    <div class="container-site">
-      <nav class="breadcrumb" aria-label="Fil d'Ariane">
-        <a href="/">{homeLink}</a>
-        <span aria-hidden="true">›</span>
-        <span aria-current="page">{soumissionNav?.name ?? soumission.pageTitle}</span>
-      </nav>
-      <h1 class="page-title">{soumission.title}</h1>
-      <p class="page-subtitle">{soumission.subtitle}</p>
-    </div>
-  </section>
+  <ShortHero
+    client:load
+    content={{  
+      title: soumission.title,
+      subtitle: soumission.subtitle,
+      imageSrc: "/images/empty-room-blue-wall-with-moulding-and-parquet-fl-2023-11-27-04-52-31-utc.webp",
+      imageAlt: "Peintres décorateurs au travail",
+    }}
+  />
 
-  <section class="soumission-section">
-    <div class="container-site soumission-grid">
-      <div class="soumission-form-col">
-        <SoumissionForm />
-      </div>
-
-      <aside class="soumission-sidebar">
-        <div class="sidebar-card">
-          <h2 class="sidebar-title">{soumission.sidebar.processTitle}</h2>
-          <ol class="process-list">
-            {soumission.sidebar.steps.map((step, i) => (
-              <li class="process-step">
-                <div class="process-num">{i + 1}</div>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        <div class="sidebar-contact">
-          <h3>{soumission.sidebar.directContactTitle}</h3>
-          <a href={`tel:${general.phone.replace(/\D/g, '')}`} class="sidebar-phone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-            {general.phone}
-          </a>
-          <a href={`mailto:${general.email}`} class="sidebar-email">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            {general.email}
-          </a>
-          <p class="sidebar-legal">
-            {soumission.sidebar.rbqLabel} {general.rbq}<br />
-            {general.legalName}
-          </p>
-        </div>
-      </aside>
-    </div>
-  </section>
+ <SubmissionForm
+  client:load
+  imageSrc="/images/stylish-bedroom-interior-with-double-bed-and-emera-2023-11-27-05-08-37-utc.webp"
+  imageAlt="Peintres décorateurs au travail"
+  title={soumission.title}
+  subtitle={soumission.subtitle}
+  form={soumission.form}
+  />
 </Layout>

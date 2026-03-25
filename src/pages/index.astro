@@ -16,8 +16,9 @@ const [heroEntry] = await getCollection('hero', (e) => e.id === `${locale}/main`
 const [navEntry] = await getCollection('navigation', (e) => e.id === `${locale}/main`);
 const [ctaEntry] = await getCollection('cta', (e) => e.id === `${locale}/main`);
 const [pourquoiEntry] = await getCollection('pourquoi', (e) => e.id === `${locale}/main`);
+const [testimonialsEntry] = await getCollection('testimonials', (e) => e.id === `${locale}/main`);
 
-if (!heroEntry || !navEntry || !ctaEntry || !pourquoiEntry) {
+if (!heroEntry || !navEntry || !ctaEntry || !pourquoiEntry || !testimonialsEntry) {
   throw new Error(`Missing content collections for locale: ${locale}`);
 }
 
@@ -25,6 +26,7 @@ const heroData = heroEntry.data;
 const nav = navEntry.data;
 const ctaData = ctaEntry.data;
 const pourquoiData = pourquoiEntry.data;
+const testimonialsData = testimonialsEntry.data;
 
 const ctaImage = (await import('@/assets/Website Content/Photos/cozy-modern-kitchen-room-interior-design-with-dark-2024-04-01-23-13-59-utc.webp')).default;
 
@@ -67,7 +69,6 @@ const features = services.map((service) => {
 });
 
 const heroContent = {
-  pillCta: heroData.pillCta,
   title: heroData.title,
   title2: heroData.title2,
   subtitle: heroData.subtitle,
@@ -88,7 +89,12 @@ const heroContent = {
     title={nav.servicesSection.title}
     subtitle={nav.servicesSection.subtitle}
   />
-  <Testimonials client:load />
+  <Testimonials
+    client:load
+    sectionLabel={testimonialsData.sectionLabel}
+    title={testimonialsData.title}
+    items={testimonialsData.items}
+  />
 
   <WhyChooseUs
     client:load

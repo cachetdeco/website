@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import general from "../content/settings/general.json";
+import { PhoneIcon } from "@heroicons/react/24/solid";
 
+import general from "../content/settings/general.json";
 
 export default function Header({
   navigation,
@@ -14,6 +15,7 @@ export default function Header({
   ctaHref: string;
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const phoneHref = `tel:${general.phone.replace(/\D/g, "")}`;
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -58,12 +60,29 @@ export default function Header({
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
+          {/* <a
             href={ctaHref}
             className="rounded-md bg-[var(--color-brand-600)] px-4 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-[var(--color-brand-600)] hover:bg-[var(--color-brand-700)] transition-colors"
           >
             {ctaLabel}
-          </a>
+          </a> */}
+          <dl className="flex gap-x-2 items-center justify-center text-xl font-semibold bg-white rounded-full p-2">
+            <dt className="flex-none">
+              <span className="sr-only">Telephone</span>
+              <PhoneIcon
+                aria-hidden="true"
+                className="h-8 w-8 text-brand-600 "
+              />
+            </dt>
+            <dd>
+              <a
+                href={phoneHref}
+                className="text-brand-600 hover:text-brand-700 "
+              >
+                {general.phone}
+              </a>
+            </dd>
+          </dl>
         </div>
       </nav>
       <Dialog
@@ -76,29 +95,21 @@ export default function Header({
           <div className="flex items-center justify-between sm:justify-end lg:justify-between">
             <a
               href="/"
-              className="flex sm:hidden lg:flex  items-center bg-[white] rounded-3xl 
-    ps-0.5 pe-2 pt-1 pb-0.5
-    md:ps-1 md:pe-3 md:pt-2 md:pb-1
-    
-    "
+              className="flex sm:hidden lg:flex  items-center bg-[white] rounded-full m-1"
             >
               <div className="p-1 bg-[white] rounded-full ">
                 <span className="sr-only">{general.siteName}</span>
                 <img
                   alt={general.siteName}
                   src="/images/logo-vignette.svg"
-                  className="h-10 w-auto"
+                  className="h-10 w-10 object-fill"
                 />
               </div>
-
-              <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-brand-600 uppercase">
-                {general.brandName}
-              </p>
             </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-400"
+              className="my-2 mx-3 rounded-md text-brand-600 hover:text-brand-700"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
@@ -111,19 +122,36 @@ export default function Header({
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-brand-600 hover:bg-brand-50 hover:text-brand-700"
                   >
                     {item.name}
                   </a>
                 ))}
               </div>
               <div className="py-6">
-                <a
+                {/* <a
                   href={ctaHref}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-center bg-[var(--color-brand-600)] text-white ring-1 ring-inset ring-[var(--color-brand-600)] hover:bg-[var(--color-brand-700)]"
                 >
                   {ctaLabel}
-                </a>
+                </a> */}
+                <dl className="flex gap-x-2 items-start justify-start text-xl font-semibold">
+                  <dt className="flex-none">
+                    <span className="sr-only">Telephone</span>
+                    <PhoneIcon
+                      aria-hidden="true"
+                      className="h-8 w-8 text-brand-600 "
+                    />
+                  </dt>
+                  <dd>
+                    <a
+                      href={phoneHref}
+                      className="text-brand-600 hover:text-brand-700 "
+                    >
+                      {general.phone}
+                    </a>
+                  </dd>
+                </dl>
               </div>
             </div>
           </div>

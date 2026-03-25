@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/base.astro';
-import CTABanner from '@/components/ui/cta-banner';
+import ContactForm from '@/components/ui/contact';
+import ShortHero from '@/components/ui/short-hero';
 import { getCollection } from 'astro:content';
 import { getLocale } from '@/lib/locale';
 import general from '../content/settings/general.json';
@@ -8,15 +9,9 @@ import general from '../content/settings/general.json';
 const locale = getLocale(Astro);
 
 const [contactEntry] = await getCollection('contact', (e) => e.id === `${locale}/main`);
-const [ctaEntry] = await getCollection('cta', (e) => e.id === `${locale}/main`);
-const [navEntry] = await getCollection('navigation', (e) => e.id === `${locale}/main`);
-if (!contactEntry || !ctaEntry || !navEntry) throw new Error(`Missing contact content for locale: ${locale}`);
+if (!contactEntry) throw new Error(`Missing contact content for locale: ${locale}`);
 
 const contact = contactEntry.data;
-const ctaData = ctaEntry.data;
-const homeLink = navEntry.data.links.find((l) => l.href === '/')?.name ?? contact.breadcrumbHome;
-
-const ctaImage = (await import('@/assets/Website Content/Photos/cozy-modern-kitchen-room-interior-design-with-dark-2024-04-01-23-13-59-utc.webp')).default;
 ---
 
 <Layout
@@ -24,154 +19,25 @@ const ctaImage = (await import('@/assets/Website Content/Photos/cozy-modern-kitc
   description={`Contactez Cachet Peintres Décorateurs — ${general.phone} — ${general.email}. Nous servons Laval, la Rive-Nord et les environs.`}
   canonical="/contact"
 >
-  <section class="page-header">
-    <div class="container-site">
-      <nav class="breadcrumb" aria-label="Fil d'Ariane">
-        <a href="/">{homeLink}</a>
-        <span aria-hidden="true">›</span>
-        <span aria-current="page">{contact.title}</span>
-      </nav>
-      <h1 class="page-title">{contact.title}</h1>
-      <p class="page-subtitle">{contact.subtitle}</p>
-    </div>
-  </section>
-
-  <section class="contact-section">
-    <div class="container-site contact-grid">
-      <div class="contact-info">
-        <div class="contact-card">
-          <div class="contact-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          </div>
-          <div>
-            <h3>{contact.phone}</h3>
-            <a href={`tel:${general.phone.replace(/\D/g, '')}`} class="contact-value contact-link">
-              {general.phone}
-            </a>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <div class="contact-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-          </div>
-          <div>
-            <h3>{contact.email}</h3>
-            <a href={`mailto:${general.email}`} class="contact-value contact-link">
-              {general.email}
-            </a>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <div class="contact-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <div>
-            <h3>{contact.address}</h3>
-            <p class="contact-value">{general.address}</p>
-            <p class="contact-service-area">{contact.serviceAreaLabel} {general.serviceArea}</p>
-          </div>
-        </div>
-
-        <div class="contact-hours">
-          <h3 class="contact-hours-title">{contact.hours.title}</h3>
-          <ul class="hours-list">
-            <li>
-              <span class="hours-day">{contact.hours.weekdays.day}</span>
-              <span class="hours-time">{contact.hours.weekdays.time}</span>
-            </li>
-            <li>
-              <span class="hours-day">{contact.hours.saturday.day}</span>
-              <span class="hours-time">{contact.hours.saturday.time}</span>
-            </li>
-            <li>
-              <span class="hours-day">{contact.hours.sunday.day}</span>
-              <span class="hours-time closed">{contact.hours.sunday.time}</span>
-            </li>
-          </ul>
-        </div>
-
-        {general.facebook && (
-          <div class="contact-social">
-            <h3 class="contact-social-title">{contact.follow}</h3>
-            <a
-              href={general.facebook}
-              class="social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-              </svg>
-              {contact.facebookCta}
-            </a>
-          </div>
-        )}
-
-        <div class="contact-legal">
-          <p>{contact.rbq} {general.rbq}</p>
-          <p>{contact.neq} {general.neq} ({general.legalName})</p>
-        </div>
-      </div>
-
-      <div class="contact-action-panel">
-        <div class="contact-cta-card">
-          <div class="contact-cta-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14,2 14,8 20,8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-            </svg>
-          </div>
-          <h2>{contact.ctaCard.title}</h2>
-          <p>{contact.ctaCard.description}</p>
-          <a href="/soumission" class="btn-primary contact-soumission-btn">
-            {contact.ctaCard.button}
-          </a>
-        </div>
-
-        <div class="contact-map">
-          <h3 class="contact-map-title">{contact.map.title}</h3>
-          <div class="map-placeholder">
-            <div class="map-placeholder-inner">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              <p>{contact.map.region}</p>
-              <span class="map-service-area">{general.serviceArea}</span>
-              <a
-                href={`https://maps.google.com/?q=Laval+Quebec`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-outline map-btn"
-              >
-                {contact.map.mapsButton}
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <CTABanner
+  <ShortHero
     client:load
-    title={ctaData.title}
-    subtitle={ctaData.subtitle}
-    buttonText={ctaData.button}
-    buttonHref={ctaData.buttonHref}
-    imageSrc={ctaImage.src}
-    imageAlt={ctaData.imageAlt}
+    content={{  
+      title: contact.title,
+      subtitle: contact.subtitle,
+      imageSrc: "/images/empty-room-blue-wall-with-moulding-and-parquet-fl-2023-11-27-04-52-31-utc.webp",
+      imageAlt: "Peintres décorateurs au travail",
+    }}
+  />
+
+  <ContactForm
+    client:load
+    phoneLabel={contact.phone}
+    phoneValue={general.phone}
+    emailLabel={contact.email}
+    emailValue={general.email}
+    addressLabel={contact.address}
+    addressValue={general.address}
+    serviceAreaLabel={contact.serviceAreaLabel}
+    serviceArea={general.serviceArea}
   />
 </Layout>

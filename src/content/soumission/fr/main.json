@@ -23,6 +23,10 @@
     },
     "message": "Détails du projet",
     "messagePlaceholder": "Décrivez votre projet (pièces à peindre, superficie approximative, délai souhaité...)",
+    "fichiers": "Photos ou documents",
+    "fichiersHint": "Glissez vos fichiers ici ou cliquez pour parcourir",
+    "fichiersAccepted": "Images, PDF, Word · Max 20 Mo au total",
+    "fichiersRemove": "Retirer",
     "envoyer": "Envoyer ma demande",
     "sending": "Envoi en cours...",
     "successTitle": "Demande envoyée avec succès!",
@@ -34,7 +38,9 @@
       "courriel": "Une adresse courriel valide est requise.",
       "telephone": "Le numéro de téléphone est requis.",
       "typeService": "Veuillez sélectionner un type de service.",
-      "message": "Un message est requis."
+      "message": "Un message est requis.",
+      "fichiersType": "Seules les images, PDF et documents Word sont acceptés.",
+      "fichiersSize": "La taille totale des fichiers ne doit pas dépasser 20 Mo."
     }
   },
   "sidebar": {

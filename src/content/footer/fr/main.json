@@ -3,6 +3,7 @@
   "navTitle": "Navigation",
   "servicesTitle": "Nos services",
   "contactTitle": "Contact",
+  "serviceAreasTitle": "Zone de service",
   "legal": "© {year} 9500-5609 Québec Inc. Tous droits réservés.",
   "rbq": "RBQ : 5839 8736 01",
   "neq": "NEQ : 9500-5609",
@@ -12,5 +13,25 @@
     { "label": "Peinture extérieure", "href": "/services#peinture-exterieure" },
     { "label": "Peinture commerciale", "href": "/services#peinture-commerciale" },
     { "label": "Décoration intérieure", "href": "/services#decoration-interieure" }
+  ],
+  "serviceAreas": [
+    "Saint-Basile-le-Grand",
+    "Longueuil",
+    "Brossard",
+    "Saint-Hubert",
+    "Saint-Lambert",
+    "Saint-Bruno-de-Montarville",
+    "Beloeil",
+    "Mont-Saint-Hilaire",
+    "Sainte-Julie",
+    "Boucherville",
+    "La Prairie",
+    "Carignan",
+    "Candiac",
+    "McMasterville",
+    "Otterburn Park",
+    "Chambly",
+    "Partout sur la Rive-Sud",
+    "Montréal"
   ]
 }

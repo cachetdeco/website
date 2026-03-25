@@ -1,46 +1,29 @@
-const featuredTestimonial = {
-  body: 'Integer id nunc sit semper purus. Bibendum at lacus ut arcu blandit montes vitae auctor libero. Hac condimentum dignissim nibh vulputate ut nunc. Amet nibh orci mi venenatis blandit vel et proin. Non hendrerit in vel ac diam.',
-  author: {
-    name: 'Brenna Goyette',
-    handle: 'brennagoyette',
-    imageUrl:
-      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80',
-    logoUrl: 'https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-gray-900.svg',
-  },
-}
-const testimonials = [
-  [
-    [
-      {
-        iframe: <iframe className="w-full h-full rounded-2xl " src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fjean.christophe.ali.2025%2Fposts%2Fpfbid02qsqq2Rn4vRx1gCG3q5e5M2ByPXH6zMux59fWvotfsQxpuWyUh46TZuwCND9iKpwnl&show_text=true&width=500" width="500" height="194" style={{ border: 'none', overflow: 'hidden' }} scrolling="no" frameBorder={0} allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>,
-        key: 'jean-christophe-ali',
-      }
-    ],
-    [{
-      iframe: <iframe className="w-full h-full rounded-2xl " src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcharlotte.lafrance.CL%2Fposts%2Fpfbid026Jw7aer2r84q27kgcZ1PKg8q2sqKgZc6nJspP42CTEAU6ac8FF4Ptj8ap8XGh6Wl&show_text=true&width=500" width="500" height="166" style={{ border: 'none', overflow: 'hidden' }} scrolling="no" frameBorder={0} allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>,
-        key: 'charlotte-lafrance',
-      }
-    ],
-  ],
-  [
-    [{
-      iframe: <iframe className="w-full h-full rounded-2xl " src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcolin.griffin.165%2Fposts%2Fpfbid0iCA6hoF5X32gUJSBcDUiXP2hxhxzMmEiC5Att3CDDwFckrHa7yxyGiLBmXQhQBUFl&show_text=true&width=500" width="500" height="222" style={{ border: 'none', overflow: 'hidden' }} scrolling="no" frameBorder={0} allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> ,
-        key: 'colin-griffin',
-      }
-    ],
-    [ {
-      iframe: <iframe className="w-full h-full rounded-2xl" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fhollowman.la.rock%2Fposts%2Fpfbid0hPR3RpaSLZtZkgpaEzKsNKAF4hUeKbDzkicAZ9jsbCpXKRRsYD63C32rw78uvRoml&show_text=true&width=500" width="500" height="170" style={{ border: 'none', overflow: 'hidden' }} scrolling="no" frameBorder={0} allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>,
-        key: 'hollowman-la-rock',
-      }
-      ],
-  ],
-]
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+interface TestimonialItem {
+  key: string;
+  src: string;
+  height: number;
 }
 
-export default function Grid() {
+interface Props {
+  sectionLabel: string;
+  title: string;
+  items: TestimonialItem[];
+}
+
+const iframeProps = {
+  width: 500,
+  scrolling: 'no',
+  frameBorder: 0,
+  allowFullScreen: true,
+  allow: 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share',
+  style: { border: 'none', overflow: 'hidden' } as React.CSSProperties,
+  className: 'w-full rounded-2xl',
+}
+
+export default function Grid({ sectionLabel, title, items }: Props) {
+  const [featured, ...rest] = items
+  const groups = [rest.slice(0, 2), rest.slice(2)]
+
   return (
     <div className="relative isolate bg-brand-50 pt-24 pb-32 sm:pt-32 dark:bg-brand-50">
       <div
@@ -69,52 +52,31 @@ export default function Grid() {
       </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-base/7 font-semibold text-brand-400 dark:text-brand-400">Témoignages</h2>
+          <h2 className="text-base/7 font-semibold text-brand-400 dark:text-brand-400">{sectionLabel}</h2>
           <p className="mt-2 text-4xl font-semibold tracking-tight text-balance text-brand-600 sm:text-5xl dark:text-white">
-           Ce que nos clients disent de nous
+            {title}
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4 dark:text-gray-100">
           <figure className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
-            <iframe className="w-full h-full rounded-2xl " src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fsylvie.gauthier.73594%2Fposts%2Fpfbid0DHM1833TLKru4cbkTnZq3KLNHrSR8B8rQAgGosGzAbpGMccvLffoNmCLgEo8GUNPl&show_text=true&width=500" width="500" height="208" style={{ border: 'none', overflow: 'hidden' }} scrolling="no" frameBorder={0} allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <iframe {...iframeProps} src={featured.src} height={featured.height} />
           </figure>
-          {testimonials.map((columnGroup, columnGroupIdx) => (
-            <div key={columnGroupIdx} className="space-y-8 xl:contents xl:space-y-0">
-              {columnGroup.map((column, columnIdx) => (
-                <div
-                  key={columnIdx}
-                  className={classNames(
-                    (columnGroupIdx === 0 && columnIdx === 0) ||
-                      (columnGroupIdx === testimonials.length - 1 && columnIdx === columnGroup.length - 1)
-                      ? 'xl:row-span-2'
-                      : 'xl:row-start-1',
-                    'space-y-8',
-                  )}
-                >
-                  {column.map((testimonial) => (
-                    <figure
-                      key={testimonial.key}
-                      className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10"
-                    >
-                      {testimonial.iframe}
-                      {/* <blockquote className="text-gray-900 dark:text-white">
-                        <p>{`“${testimonial.body}”`}</p>
-                      </blockquote>
-                      <figcaption className="mt-6 flex items-center gap-x-4">
-                        <img
-                          alt=""
-                          src={testimonial.author.imageUrl}
-                          className="size-10 rounded-full bg-gray-50 dark:bg-gray-700"
-                        />
-                        <div>
-                          <div className="font-semibold text-gray-900 dark:text-white">{testimonial.author.name}</div>
-                          <div className="text-gray-600 dark:text-gray-400">{`@${testimonial.author.handle}`}</div>
-                        </div>
-                      </figcaption> */}
+          {groups.map((group, groupIdx) => (
+            <div key={groupIdx} className="space-y-8 xl:contents xl:space-y-0">
+              {group.map((t, colIdx) => {
+                const isFirstCol = groupIdx === 0 && colIdx === 0
+                const isLastCol = groupIdx === groups.length - 1 && colIdx === group.length - 1
+                return (
+                  <div
+                    key={t.key}
+                    className={(isFirstCol || isLastCol) ? 'xl:row-span-2 space-y-8' : 'xl:row-start-1 space-y-8'}
+                  >
+                    <figure className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10">
+                      <iframe {...iframeProps} src={t.src} height={t.height} />
                     </figure>
-                  ))}
-                </div>
-              ))}
+                  </div>
+                )
+              })}
             </div>
           ))}
         </div>

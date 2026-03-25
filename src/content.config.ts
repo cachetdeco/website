@@ -40,7 +40,6 @@ const navigation = defineCollection({
 const hero = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/hero' }),
   schema: z.object({
-    pillCta: z.string(),
     title: z.string(),
     title2: z.string(),
     subtitle: z.string(),
@@ -120,6 +119,10 @@ const soumission = defineCollection({
       }),
       message: z.string(),
       messagePlaceholder: z.string(),
+      fichiers: z.string(),
+      fichiersHint: z.string(),
+      fichiersAccepted: z.string(),
+      fichiersRemove: z.string(),
       envoyer: z.string(),
       sending: z.string(),
       successTitle: z.string(),
@@ -132,6 +135,8 @@ const soumission = defineCollection({
         telephone: z.string(),
         typeService: z.string(),
         message: z.string(),
+        fichiersType: z.string(),
+        fichiersSize: z.string(),
       }),
     }),
     sidebar: z.object({
@@ -156,6 +161,7 @@ const footer = defineCollection({
     navTitle: z.string(),
     servicesTitle: z.string(),
     contactTitle: z.string(),
+    serviceAreasTitle: z.string(),
     legal: z.string(),
     rbq: z.string(),
     neq: z.string(),
@@ -166,6 +172,7 @@ const footer = defineCollection({
         href: z.string(),
       }),
     ),
+    serviceAreas: z.array(z.string()),
   }),
 });
 
@@ -193,6 +200,21 @@ const pourquoi = defineCollection({
   }),
 });
 
+const testimonials = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/testimonials' }),
+  schema: z.object({
+    sectionLabel: z.string(),
+    title: z.string(),
+    items: z.array(
+      z.object({
+        key: z.string(),
+        src: z.string().url(),
+        height: z.number(),
+      }),
+    ),
+  }),
+});
+
 export const collections = {
   services,
   navigation,
@@ -203,4 +225,5 @@ export const collections = {
   footer,
   notFound,
   pourquoi,
+  testimonials,
 };

@@ -258,6 +258,7 @@ collections:
       - { name: "navTitle", label: "Titre colonne navigation", widget: "string", i18n: true }
       - { name: "servicesTitle", label: "Titre colonne services", widget: "string", i18n: true }
       - { name: "contactTitle", label: "Titre colonne contact", widget: "string", i18n: true }
+      - { name: "serviceAreasTitle", label: "Titre colonne zones de service", widget: "string", i18n: true }
       - { name: "legal", label: "Mention légale (utiliser {year})", widget: "string", i18n: true }
       - { name: "rbq", label: "Ligne RBQ", widget: "string", i18n: true }
       - { name: "neq", label: "Ligne NEQ", widget: "string", i18n: true }
@@ -269,6 +270,11 @@ collections:
         fields:
           - { name: "label", label: "Libellé", widget: "string" }
           - { name: "href", label: "URL", widget: "string" }
+      - name: "serviceAreas"
+        label: "Zones de service"
+        widget: "list"
+        i18n: true
+        field: { name: "item", label: "Ville / Secteur", widget: "string" }
 
   - name: "not_found"
     label: "Page 404"
@@ -316,6 +322,27 @@ collections:
           - { name: "title", label: "Titre", widget: "string" }
           - { name: "description", label: "Description", widget: "text" }
 
+  - name: "testimonials"
+    label: "Témoignages"
+    label_singular: "Témoignage"
+    folder: "src/content/testimonials"
+    format: json
+    create: false
+    delete: false
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "sectionLabel", label: "Libellé de section", widget: "string", i18n: true }
+      - { name: "title", label: "Titre de section", widget: "string", i18n: true }
+      - name: "items"
+        label: "Témoignages"
+        widget: "list"
+        i18n: true
+        fields:
+          - { name: "key", label: "Identifiant unique", widget: "string" }
+          - { name: "src", label: "URL du post Facebook (embed)", widget: "string" }
+          - { name: "height", label: "Hauteur de l'iframe (px)", widget: "number" }
+
   - name: "settings"
     label: "Paramètres du site"
     files:
@@ -333,6 +360,7 @@ collections:
           - { name: "serviceArea", label: "Zone de service", widget: "string" }
           - { name: "facebook", label: "Lien Facebook", widget: "string" }
           - { name: "instagram", label: "Lien Instagram", widget: "string", required: false }
+          - { name: "linkedin", label: "Lien LinkedIn (vide = masqué)", widget: "string", required: false }
           - { name: "rbq", label: "Numéro RBQ", widget: "string" }
           - { name: "neq", label: "Numéro NEQ (Registraire)", widget: "string" }
 
