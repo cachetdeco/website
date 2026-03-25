@@ -5,10 +5,10 @@ import general from '../content/settings/general.json';
 import seo from '../content/settings/seo.json';
 import Layout from '@/layouts/base.astro';
 import Hero from '@/components/ui/hero';
-import Services from '@/components/ui/services';
-import WhyChooseUs from '@/components/ui/why-choose-us';
+import Services from '@/components/sections/services';
+import WhyChooseUs from '@/components/sections/why-choose-us';
 import CTABanner from '@/components/ui/cta-banner';
-import Testimonials from '@/components/ui/testimonials';
+import Testimonials from '@/components/sections/testimonials';
 
 const locale = getLocale(Astro);
 
@@ -87,6 +87,7 @@ const heroContent = {
 >
   <Hero client:load content={heroContent} />
   <Services
+    id="services"
     client:load
     features={features}
     title={nav.servicesSection.title}
@@ -105,11 +106,11 @@ const heroContent = {
     subtitle={pourquoiData.subtitle}
     cards={pourquoiData.cards}
     images={{
-      main: (await import('@/assets/Website Content/Photos/silver-and-white-apartment-interior-2023-11-27-05-32-03-utc.webp')).default.src,
+      main: '/images/why-us-1.webp',
       mainAlt: 'Peintres décorateurs au travail',
-      detail2: (await import('@/assets/Website Content/Photos/choosing-wall-paints-2023-11-27-05-09-01-utc.webp')).default.src,
+      detail2: '/images/why-us-2.webp',
       detail2Alt: 'Peintres décorateurs au travail',
-      detail1: (await import('@/assets/Website Content/Photos/choosing-wall-paints-2023-11-27-04-59-54-utc.webp')).default.src,
+      detail1: '/images/why-us-3.webp',
       detail1Alt: 'Peintres décorateurs au travail',
     }}
   />

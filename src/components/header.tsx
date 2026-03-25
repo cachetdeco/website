@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "motion/react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { PhoneIcon } from "@heroicons/react/24/solid";
@@ -50,13 +51,15 @@ export default function Header({
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <a
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
               key={item.name}
               href={item.href}
               className="text-sm/6 font-semibold text-white hover:underline underline-offset-4 decoration-2 drop-shadow"
             >
               {item.name}
-            </a>
+            </motion.a>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -66,7 +69,11 @@ export default function Header({
           >
             {ctaLabel}
           </a> */}
-          <dl className="flex gap-x-2 items-center justify-center text-xl font-semibold bg-white rounded-full p-2">
+          <motion.dl
+            className="flex gap-x-2 items-center justify-center text-xl font-semibold bg-white rounded-full p-2"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+          >
             <dt className="flex-none">
               <span className="sr-only">Telephone</span>
               <PhoneIcon
@@ -82,7 +89,7 @@ export default function Header({
                 {general.phone}
               </a>
             </dd>
-          </dl>
+          </motion.dl>
         </div>
       </nav>
       <Dialog

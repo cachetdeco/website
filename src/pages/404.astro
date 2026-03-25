@@ -2,6 +2,7 @@
 import Layout from '@/layouts/base.astro';
 import { getCollection } from 'astro:content';
 import { getLocale } from '@/lib/locale';
+import ShortHero from '@/components/ui/short-hero';
 
 const locale = getLocale(Astro);
 const [entry] = await getCollection('notFound', (e) => e.id === `${locale}/main`);
@@ -11,18 +12,15 @@ const notFound = entry.data;
 ---
 
 <Layout title={notFound.title} noindex={true}>
-  <section class="not-found-section">
-    <div class="container-site not-found-inner">
-      <div class="not-found-number" aria-hidden="true">404</div>
-      <h1 class="not-found-title">{notFound.title}</h1>
-      <p class="not-found-message">{notFound.message}</p>
-      <a href="/" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-          <line x1="19" y1="12" x2="5" y2="12"/>
-          <polyline points="12,19 5,12 12,5"/>
-        </svg>
-        {notFound.home}
-      </a>
-    </div>
-  </section>
+    <ShortHero
+    client:load
+    content={{
+      title: notFound.title,
+      subtitle: notFound.message,
+      imageSrc: "/images/short-hero.webp",
+      imageAlt: "Peintres décorateurs au travail",
+    }}
+  />
+
+  
 </Layout>

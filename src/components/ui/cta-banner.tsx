@@ -7,6 +7,26 @@ interface FullWidthWithBackgroundImageAndLargeContentProps {
   imageAlt?: string;
 }
 
+import { motion } from "motion/react";
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 18 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { amount: 0.35, once: false },
+  transition: {
+    duration: 0.55,
+    ease: [0.22, 1, 0.36, 1] as const,
+    delay,
+  },
+})
+
+const bgReveal = {
+  initial: { opacity: 0.6, scale: 1.06 },
+  whileInView: { opacity: 1, scale: 1 },
+  viewport: { amount: 0.25, once: false },
+  transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const },
+}
+
 export default function FullWidthWithBackgroundImageAndLargeContent({
   title,
   subtitle,
@@ -20,7 +40,8 @@ export default function FullWidthWithBackgroundImageAndLargeContent({
       <div className="relative bg-gray-900 min-h-[40rem] flex items-center justify-center">
         {/* Decorative image and overlay */}
         <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-          <img
+          <motion.img
+            {...bgReveal}
             alt={imageAlt}
             src={imageSrc}
             className="size-full object-cover"
@@ -29,18 +50,25 @@ export default function FullWidthWithBackgroundImageAndLargeContent({
         <div aria-hidden="true" className="absolute inset-0 bg-gray-900 opacity-50" />
 
         <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-24 text-center sm:py-32 lg:px-0">
-          <h2 id="cta-heading" className="text-3xl font-bold tracking-tight text-brand-50 sm:text-4xl lg:text-5xl">
+          <motion.h2
+            {...fadeUp(0)}
+            id="cta-heading"
+            className="text-3xl font-bold tracking-tight text-brand-50 sm:text-4xl lg:text-5xl"
+          >
             {title}
-          </h2>
-          <p className="mt-4 text-lg text-brand-50/95 sm:text-xl">
+          </motion.h2>
+          <motion.p {...fadeUp(0.1)} className="mt-4 text-lg text-brand-50/95 sm:text-xl">
             {subtitle}
-          </p>
-          <a
+          </motion.p>
+          <motion.a
+            {...fadeUp(0.2)}
+            whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
             href={buttonHref}
             className="mt-8 inline-block rounded-md border border-transparent bg-[var(--color-brand-600)] px-8 py-3 text-base font-medium text-white shadow-sm transition-colors hover:bg-[var(--color-brand-700)]"
           >
             {buttonText}
-          </a>
+          </motion.a>
         </div>
       </div>
     </section>

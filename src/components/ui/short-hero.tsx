@@ -5,6 +5,18 @@ interface ContactHeroContent {
   subtitle: string;
 }
 
+import { motion } from "motion/react";
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: {
+    duration: 0.6,
+    ease: [0.22, 1, 0.36, 1] as const,
+    delay,
+  },
+});
+
   
   export default function ContactHero({ content }: { content: ContactHeroContent }) {
     const { imageSrc, imageAlt, title, subtitle } = content;
@@ -29,12 +41,19 @@ interface ContactHeroContent {
           className="relative mx-auto flex max-w-7xl flex-col items-center justify-center text-center sm:px-6 lg:px-8"
         >
           <div className="mx-auto max-w-2xl lg:max-w-none">
-            <h2 id="sale-heading" className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <motion.h2
+              {...fadeUp(0.15)}
+              id="sale-heading"
+              className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
               {title}
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-xl text-white">
+            </motion.h2>
+            <motion.p
+              {...fadeUp(0.3)}
+              className="mx-auto mt-4 max-w-xl text-xl text-white"
+            >
               {subtitle}
-            </p>
+            </motion.p>
           </div>
         </section>
  

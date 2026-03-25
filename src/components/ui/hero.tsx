@@ -3,10 +3,9 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { motion } from "motion/react";
 import Autoplay from "embla-carousel-autoplay";
-import general from "../../content/settings/general.json";
-
-import logo from "@/assets/cachet-hero-logo.svg";
+import general from "@/content/settings/general.json";
 
 export type HeroContent = {
   title: string;
@@ -15,6 +14,11 @@ export type HeroContent = {
   cta: string;
   ctaHref: string;
 };
+
+const logo = {
+  src: '/images/logo-text.svg',
+  alt: 'Cachet Peintres Décorateurs',
+}
 
 const slides = [
   { src: '/images/carrousel-1.webp', alt: "Peinture intérieure" },
@@ -28,6 +32,16 @@ const autoplayPlugin = Autoplay({
   delay: 4000,
   stopOnInteraction: false,
   stopOnMouseEnter: false,
+});
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: {
+    duration: 0.6,
+    ease: [0.22, 1, 0.36, 1] as const,
+    delay,
+  },
 });
 
 export default function Hero({ content }: { content: HeroContent }) {
@@ -57,42 +71,33 @@ export default function Hero({ content }: { content: HeroContent }) {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 h-full flex items-center justify-center pt-14">
           <div className="mx-auto max-w-4xl text-center">
-            {/* <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-              <div className="flex flex-wrap items-center justify-center gap-2 gap-x-3.5 rounded-full px-4 py-2 text-sm/6 text-gray-300 ring-1 ring-white/20">
-                <span>RBQ {general.rbq}</span>
-                <span className="text-white/30" aria-hidden>
-                  ·
-                </span>
-                <span>{general.serviceArea}</span>
-                <span className="text-white/30" aria-hidden>
-                  ·
-                </span>
-                <span>{pillCta}</span>
-              </div>
-            </div> */}
-            {/* <h1
-              className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl"
-              style={{ fontFamily: "var(--font-display)" }}
+            <motion.div {...fadeUp(0.2)}>
+              <img
+                src={logo.src}
+                alt={general.siteName}
+                className="w-full h-auto"
+              />
+            </motion.div>
+            <motion.p
+              {...fadeUp(0.45)}
+              className="p-4 mt-8 text-lg font-medium text-pretty text-white sm:text-xl/8 lg:text-2xl/8"
             >
-              {title}
-            </h1>
-            <h2
-              className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-6xl"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              {title2}
-            </h2> */}
-            <img src={logo.src} alt={general.siteName} className="w-full h-auto" />
-            <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">
               {subtitle}
-            </p>
-            <div className="mt-10 flex items-center justify-center">
-              <a
+            </motion.p>
+
+            <div
+              {...fadeUp(0.65)}
+              
+              className="mt-10 flex items-center justify-center"
+            >
+              <motion.a
+              whileHover={{ scale: 1.075, transition: { duration: 0.1 } }}
+              transition={{ type: "spring", stiffness: 400, damping: 25, }}
                 href={ctaHref}
-                className="rounded-md bg-[var(--color-brand-600)] px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-[var(--color-brand-700)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand-600)]"
+                className="rounded-md bg-[var(--color-brand-600)] px-3.5 py-2.5 text-lg font-light text-white shadow-xs hover:bg-[var(--color-brand-700)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand-600)]"
               >
                 {cta}
-              </a>
+              </motion.a>
             </div>
           </div>
         </div>

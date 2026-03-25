@@ -78,7 +78,7 @@ collections:
         i18n: true
         fields:
           - { name: "services", label: "Page Services", widget: "string" }
-          - { name: "soumission", label: "Page Soumission", widget: "string" }
+          - { name: "submission", label: "Page Soumission", widget: "string" }
 
   - name: "hero"
     label: "Hero (accueil)"
@@ -172,10 +172,10 @@ collections:
           - { name: "button", label: "Bouton", widget: "string" }
       - { name: "breadcrumbHome", label: "Fil d'Ariane — Accueil", widget: "string", i18n: true }
 
-  - name: "soumission"
+  - name: "submission"
     label: "Page Soumission & formulaire"
     label_singular: "Soumission"
-    folder: "src/content/soumission"
+    folder: "src/content/submission"
     format: json
     create: false
     delete: false
@@ -191,29 +191,33 @@ collections:
         i18n: true
         fields:
           - { name: "ariaLabel", label: "Aria-label formulaire", widget: "string" }
-          - { name: "nom", label: "Libellé nom", widget: "string" }
-          - { name: "nomPlaceholder", label: "Placeholder nom", widget: "string" }
-          - { name: "courriel", label: "Libellé courriel", widget: "string" }
-          - { name: "courrielPlaceholder", label: "Placeholder courriel", widget: "string" }
-          - { name: "telephone", label: "Libellé téléphone", widget: "string" }
-          - { name: "telephonePlaceholder", label: "Placeholder téléphone", widget: "string" }
-          - { name: "adresse", label: "Libellé adresse travaux", widget: "string" }
-          - { name: "adressePlaceholder", label: "Placeholder adresse", widget: "string" }
-          - { name: "typeService", label: "Libellé type de service", widget: "string" }
-          - { name: "typeServicePlaceholder", label: "Placeholder sélection", widget: "string" }
-          - name: "typeServiceOptions"
+          - { name: "fullNameLabel", label: "Libellé nom complet", widget: "string" }
+          - { name: "fullNamePlaceholder", label: "Placeholder nom", widget: "string" }
+          - { name: "emailLabel", label: "Libellé courriel", widget: "string" }
+          - { name: "emailPlaceholder", label: "Placeholder courriel", widget: "string" }
+          - { name: "phoneLabel", label: "Libellé téléphone", widget: "string" }
+          - { name: "phonePlaceholder", label: "Placeholder téléphone", widget: "string" }
+          - { name: "workAddressLabel", label: "Libellé adresse travaux", widget: "string" }
+          - { name: "workAddressPlaceholder", label: "Placeholder adresse", widget: "string" }
+          - { name: "serviceTypeLabel", label: "Libellé type de service", widget: "string" }
+          - { name: "serviceTypePlaceholder", label: "Placeholder sélection", widget: "string" }
+          - name: "serviceTypeOptions"
             label: "Options type de service"
             widget: "object"
             fields:
-              - { name: "interieur", label: "Intérieur", widget: "string" }
-              - { name: "exterieur", label: "Extérieur", widget: "string" }
+              - { name: "interior", label: "Intérieur", widget: "string" }
+              - { name: "exterior", label: "Extérieur", widget: "string" }
               - { name: "commercial", label: "Commercial", widget: "string" }
               - { name: "decoration", label: "Décoration", widget: "string" }
-              - { name: "autre", label: "Autre", widget: "string" }
-          - { name: "message", label: "Libellé message", widget: "string" }
+              - { name: "other", label: "Autre", widget: "string" }
+          - { name: "messageLabel", label: "Libellé message", widget: "string" }
           - { name: "messagePlaceholder", label: "Placeholder message", widget: "text" }
-          - { name: "envoyer", label: "Bouton envoyer", widget: "string" }
-          - { name: "sending", label: "État envoi", widget: "string" }
+          - { name: "attachmentsLabel", label: "Libellé pièces jointes", widget: "string" }
+          - { name: "attachmentsHint", label: "Aide zone dépôt", widget: "string" }
+          - { name: "attachmentsAccepted", label: "Formats acceptés", widget: "string" }
+          - { name: "attachmentsRemove", label: "Retirer fichier (aria)", widget: "string" }
+          - { name: "submitLabel", label: "Bouton envoyer", widget: "string" }
+          - { name: "submittingLabel", label: "État envoi", widget: "string" }
           - { name: "successTitle", label: "Succès — titre", widget: "string" }
           - { name: "successMessage", label: "Succès — message", widget: "text" }
           - { name: "errorTitle", label: "Erreur — titre", widget: "string" }
@@ -222,11 +226,13 @@ collections:
             label: "Messages validation"
             widget: "object"
             fields:
-              - { name: "nom", label: "Nom", widget: "string" }
-              - { name: "courriel", label: "Courriel", widget: "string" }
-              - { name: "telephone", label: "Téléphone", widget: "string" }
-              - { name: "typeService", label: "Type service", widget: "string" }
+              - { name: "fullName", label: "Nom", widget: "string" }
+              - { name: "email", label: "Courriel", widget: "string" }
+              - { name: "phone", label: "Téléphone", widget: "string" }
+              - { name: "serviceType", label: "Type service", widget: "string" }
               - { name: "message", label: "Message", widget: "string" }
+              - { name: "attachmentsType", label: "Type fichier", widget: "string" }
+              - { name: "attachmentsSize", label: "Taille fichiers", widget: "string" }
       - name: "sidebar"
         label: "Barre latérale"
         widget: "object"
@@ -356,6 +362,10 @@ collections:
           - { name: "taglineHero", label: "Slogan hero", widget: "string" }
           - { name: "phone", label: "Téléphone", widget: "string" }
           - { name: "email", label: "Courriel", widget: "string" }
+          - { name: "emailFromContact", label: "Expéditeur courriel (formulaire contact, ex. Nom <adresse@domaine>)", widget: "string" }
+          - { name: "emailToContact", label: "Destinataire courriel (formulaire contact)", widget: "string" }
+          - { name: "fromAddressSubmission", label: "Expéditeur courriel (formulaire soumission, ex. Nom <adresse@domaine>)", widget: "string" }
+          - { name: "toAddressSubmission", label: "Destinataire courriel (formulaire soumission)", widget: "string" }
           - { name: "address", label: "Adresse", widget: "string" }
           - { name: "serviceArea", label: "Zone de service", widget: "string" }
           - { name: "facebook", label: "Lien Facebook", widget: "string" }

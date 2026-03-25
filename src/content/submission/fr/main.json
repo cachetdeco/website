@@ -1,0 +1,66 @@
+{
+  "pageTitle": "Soumission",
+  "title": "Demande de soumission",
+  "subtitle": "Remplissez le formulaire ci-dessous et nous vous contacterons dans les plus brefs délais.",
+  "form": {
+    "ariaLabel": "Demande de soumission",
+    "fullNameLabel": "Nom complet",
+    "fullNamePlaceholder": "Jean Tremblay",
+    "emailLabel": "Courriel",
+    "emailPlaceholder": "jean@exemple.com",
+    "phoneLabel": "Téléphone",
+    "phonePlaceholder": "(450) 555-1234",
+    "workAddressLabel": "Adresse des travaux",
+    "workAddressPlaceholder": "123 rue Principale, Laval, QC",
+    "serviceTypeLabel": "Type de service",
+    "serviceTypePlaceholder": "Sélectionnez un service",
+    "serviceTypeOptions": {
+      "interior": "Peinture intérieure",
+      "exterior": "Peinture extérieure",
+      "commercial": "Peinture commerciale",
+      "decoration": "Décoration intérieure",
+      "other": "Autre"
+    },
+    "messageLabel": "Détails du projet",
+    "messagePlaceholder": "Décrivez votre projet (pièces à peindre, superficie approximative, délai souhaité...)",
+    "attachmentsLabel": "Photos ou documents",
+    "attachmentsHint": "Glissez vos fichiers ici ou cliquez pour parcourir",
+    "attachmentsAccepted": "Images, PDF, Word · Max 20 Mo au total",
+    "attachmentsRemove": "Retirer",
+    "submitLabel": "Envoyer ma demande",
+    "submittingLabel": "Envoi en cours...",
+    "successTitle": "Demande envoyée avec succès!",
+    "successMessage": "Merci pour votre demande. Nous vous contacterons dans les 24 à 48 heures.",
+    "errorTitle": "Erreur lors de l'envoi",
+    "errorMessage": "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.",
+    "validation": {
+      "fullName": "Le nom est requis.",
+      "email": "Une adresse courriel valide est requise.",
+      "phone": "Le numéro de téléphone est requis.",
+      "serviceType": "Veuillez sélectionner un type de service.",
+      "message": "Un message est requis.",
+      "attachmentsType": "Seules les images, PDF et documents Word sont acceptés.",
+      "attachmentsSize": "La taille totale des fichiers ne doit pas dépasser 20 Mo."
+    }
+  },
+  "sidebar": {
+    "processTitle": "Comment ça fonctionne",
+    "steps": [
+      {
+        "title": "Remplissez le formulaire",
+        "description": "Décrivez votre projet en quelques mots — type de travaux, superficie et délai souhaité."
+      },
+      {
+        "title": "Nous vous contactons",
+        "description": "Un de nos experts vous rappelle dans les 24–48 heures pour planifier une visite gratuite."
+      },
+      {
+        "title": "Soumission détaillée",
+        "description": "Vous recevez une soumission claire et sans engagement, avec tous les détails du projet."
+      }
+    ],
+    "directContactTitle": "Ou contactez-nous directement",
+    "rbqLabel": "Numéro RBQ :"
+  },
+  "breadcrumbHome": "Accueil"
+}

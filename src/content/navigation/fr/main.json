@@ -1,13 +1,13 @@
 {
   "links": [
     { "name": "Accueil", "href": "/" },
-    { "name": "Services", "href": "/services" },
+    { "name": "Services", "href": "/#services" },
     { "name": "Contact", "href": "/contact" },
-    { "name": "Soumission", "href": "/soumission" }
+    { "name": "Soumission", "href": "/submission" }
   ],
   "cta": {
     "label": "Soumission gratuite",
-    "href": "/soumission"
+    "href": "/submission"
   },
   "servicesSection": {
     "title": "Nos Services",
@@ -17,6 +17,6 @@
   },
   "pageTitles": {
     "services": "Services",
-    "soumission": "Soumission"
+    "submission": "Soumission"
   }
 }

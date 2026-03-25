@@ -46,6 +46,24 @@
   --color-brand-800:     #1c2c1d;
   --color-brand-900:     #131f13;
 
+  /* Graphite accent palette — anchored to #3D3E3B (warm charcoal) */
+  --color-graphite-50:   #f6f6f5;
+  --color-graphite-100:  #e8e9e7;
+  --color-graphite-200:  #d1d3ce;
+  --color-graphite-300:  #b0b3ac;
+  --color-graphite-400:  #8a8d86;
+  --color-graphite-500:  #656860;
+  --color-graphite-600:  #3d3e3b;  /* base */
+  --color-graphite-700:  #323330;
+  --color-graphite-800:  #292a27;
+  --color-graphite-900:  #1a1b19;
+  --color-graphite-950:  #0f0f0e;
+
+  /* Harmony accents (pair with graphite-600 for UI highlights) */
+  --color-graphite-highlight: #c9cbc4;  /* soft sage-gray on dark backgrounds */
+  --color-graphite-muted:     #9a9d95;  /* secondary text / borders */
+  --color-graphite-warm:      #6b6358;  /* brown-gray link to wood / interior */
+
   /* Neutral palette */
   --color-gray-light:    #b7b6b6;
   --color-gray-dark:     #444445;

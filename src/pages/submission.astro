@@ -1,0 +1,38 @@
+---
+import Layout from '@/layouts/base.astro';
+import SubmissionForm from '@/components/sections/submission';
+import ShortHero from '@/components/ui/short-hero';
+import { getCollection } from 'astro:content';
+import { getLocale } from '@/lib/locale';
+import general from '../content/settings/general.json';
+
+const locale = getLocale(Astro);
+
+const [submissionEntry] = await getCollection('submission', (e) => e.id === `${locale}/main`);
+if (!submissionEntry) throw new Error(`Missing submission content for locale: ${locale}`);
+
+const submissionPage = submissionEntry.data;
+---
+
+<Layout
+  title={submissionPage.title}
+  description={`Contactez Cachet Peintres Décorateurs — ${general.phone} — ${general.email}. Nous servons Laval, la Rive-Nord et les environs.`}
+  canonical="/submission"
+>
+  <ShortHero
+    client:load
+    content={{
+      title: submissionPage.title,
+      subtitle: submissionPage.subtitle,
+      imageSrc: "/images/short-hero.webp",
+      imageAlt: "Peintres décorateurs au travail",
+    }}
+  />
+
+  <SubmissionForm
+    client:load
+    imageSrc="/images/submission.webp"
+    imageAlt="chambre avec peinture intérieure verte"
+    form={submissionPage.form}
+  />
+</Layout>
