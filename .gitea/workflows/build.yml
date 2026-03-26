@@ -21,4 +21,6 @@ jobs:
           docker build -t cachetdeco:latest .
           docker stop cachetdeco 2>/dev/null || true
           docker rm cachetdeco 2>/dev/null || true
-          docker run -d --name cachetdeco -p 30001:4321 --restart unless-stopped cachetdeco:latest
+          docker run -d --name cachetdeco -p 30001:4321 --restart unless-stopped \
+            -e RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} \
+            cachetdeco:latest
