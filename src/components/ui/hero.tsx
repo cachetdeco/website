@@ -74,35 +74,41 @@ export default function Hero({ content }: { content: HeroContent }) {
             <div className="relative rounded-lg px-6 py-2">
               <motion.div
                 className="absolute inset-0 rounded-lg bg-brand-50"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.85, duration: 2, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, scaleY: 0 }}
+                animate={{ opacity: 1, scaleY: 1 }}
+                style={{ originY: "50%" }}
+                transition={{ delay: 0.85, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               />
               <svg className="relative" viewBox="0 0 1390 500" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <clipPath id="cachet-rise-clip">
                     <motion.rect
                       x="0"
-                      initial={{ y: 334, height: 0 }}
-                      animate={{ y: 0, height: 334 }}
+                      initial={{  scaleY: 0 }}
+                      animate={{  scaleY: 1 }}
+                      style={{ originY: "100%" }}
                       transition={{
                         duration: 1,
                         ease: [0.22, 1, 0.36, 1],
                         delay: 0.85,
                       }}
+                      height="334"
                       width="1390"
                     />
                   </clipPath>
                   <clipPath id="decorateurs-drop-clip">
                     <motion.rect
                       x="0"
-                      initial={{ y: 334, height: 0 }}
-                      animate={{ y: 334, height: 166 }}
+                      y="334"
+                      initial={{  scaleY: 0 }}
+                      animate={{  scaleY: 1 }}
+                      style={{ originY: "0%" }}
                       transition={{
                         duration: 1,
                         ease: [0.22, 1, 0.36, 1],
-                        delay: 0.85,
+                        delay: .95,
                       }}
+                      height="166"
                       width="1390"
                     />
                   </clipPath>
