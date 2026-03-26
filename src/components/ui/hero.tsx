@@ -29,7 +29,7 @@ const slides = [
 ];
 
 const autoplayPlugin = Autoplay({
-  delay: 4000,
+  delay: general.carouselDelay,
   stopOnInteraction: false,
   stopOnMouseEnter: false,
 });
