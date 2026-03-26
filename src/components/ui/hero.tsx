@@ -116,9 +116,9 @@ export default function Hero({ content }: { content: HeroContent }) {
                 <motion.text
                   x="3"
                   y="312"
-                  font-family="Cocogoose Classic Trial"
-                  font-size="350"
-                  font-weight="600"
+                  fontFamily="Cocogoose"
+                  fontSize="350"
+                  fontWeight="600"
                   className="fill-brand-600"
                   clipPath="url(#cachet-rise-clip)"
                 >
@@ -127,7 +127,7 @@ export default function Hero({ content }: { content: HeroContent }) {
                 <motion.path
                   id="Rectangle"
                   fill="#b0b0ac"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   stroke="none"
                   d="M 228 360 L 1161 360 L 1161 334 L 228 334 Z"
                   initial={{ scaleX: 0 }}
@@ -146,9 +146,9 @@ export default function Hero({ content }: { content: HeroContent }) {
                 <text
                   x="228"
                   y="435"
-                  font-family="Geoform"
-                  font-size="72"
-                  font-weight="700"
+                  fontFamily="Geoform"
+                  fontSize="72"
+                  fontWeight="700"
                   className="fill-graphite-600"
                   clipPath="url(#decorateurs-drop-clip)"
                 >

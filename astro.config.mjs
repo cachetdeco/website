@@ -5,8 +5,8 @@ import react from '@astrojs/react';
 import node from '@astrojs/node';
 
 export default defineConfig({
-  output: 'static',
-  adapter: node({ mode: 'middleware' }),
+  output: 'server',
+  adapter: node({ mode: 'standalone' }),
   site: 'https://cachetdeco.com',
   i18n: {
     defaultLocale: 'fr',
