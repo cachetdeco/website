@@ -212,7 +212,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  const apiKey = import.meta.env.RESEND_API_KEY;
+  const apiKey = process.env.RESEND_API_KEY;
   const fromAddress = general.fromAddressSubmission?.trim();
   const toAddress = general.toAddressSubmission?.trim();
 

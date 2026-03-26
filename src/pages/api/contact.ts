@@ -88,7 +88,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  const apiKey = import.meta.env.RESEND_API_KEY;
+  const apiKey = process.env.RESEND_API_KEY;
   const toAddress = general.emailToContact?.trim();
   const fromAddress = general.emailFromContact?.trim();
   if (!apiKey || !toAddress || !fromAddress) {
