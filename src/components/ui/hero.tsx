@@ -16,16 +16,16 @@ export type HeroContent = {
 };
 
 const logo = {
-  src: '/images/logo-text.svg',
-  alt: 'Cachet Peintres Décorateurs',
-}
+  src: "/images/logo-text.svg",
+  alt: "Cachet Peintres Décorateurs",
+};
 
 const slides = [
-  { src: '/images/carrousel-1.webp', alt: "Peinture intérieure" },
-  { src: '/images/carrousel-2.webp', alt: "Décoration murale" },
-  { src: '/images/carrousel-3.webp', alt: "Finition de qualité" },
-  { src: '/images/carrousel-4.webp', alt: "Chambre" },
-  { src: '/images/carrousel-5.webp', alt: "Pièce lumineuse" },
+  { src: "/images/carrousel-1.webp", alt: "Peinture intérieure" },
+  { src: "/images/carrousel-2.webp", alt: "Décoration murale" },
+  { src: "/images/carrousel-3.webp", alt: "Finition de qualité" },
+  { src: "/images/carrousel-4.webp", alt: "Chambre" },
+  { src: "/images/carrousel-5.webp", alt: "Pièce lumineuse" },
 ];
 
 const autoplayPlugin = Autoplay({
@@ -71,34 +71,106 @@ export default function Hero({ content }: { content: HeroContent }) {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 h-full flex items-center justify-center pt-14">
           <div className="mx-auto max-w-4xl text-center">
-            <motion.div {...fadeUp(0.2)}>
-              <img
-                src={logo.src}
-                alt={general.siteName}
-                className="w-full h-auto"
+            <div className="relative rounded-lg px-6 py-2">
+              <motion.div
+                className="absolute inset-0 rounded-lg bg-brand-50"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.85, duration: 2, ease: [0.22, 1, 0.36, 1] }}
               />
-            </motion.div>
+              <svg className="relative" viewBox="0 0 1390 500" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <clipPath id="cachet-rise-clip">
+                    <motion.rect
+                      x="0"
+                      initial={{ y: 334, height: 0 }}
+                      animate={{ y: 0, height: 334 }}
+                      transition={{
+                        duration: 1,
+                        ease: [0.22, 1, 0.36, 1],
+                        delay: 0.85,
+                      }}
+                      width="1390"
+                    />
+                  </clipPath>
+                  <clipPath id="decorateurs-drop-clip">
+                    <motion.rect
+                      x="0"
+                      initial={{ y: 334, height: 0 }}
+                      animate={{ y: 334, height: 166 }}
+                      transition={{
+                        duration: 1,
+                        ease: [0.22, 1, 0.36, 1],
+                        delay: 0.85,
+                      }}
+                      width="1390"
+                    />
+                  </clipPath>
+                </defs>
+                <motion.text
+                  x="3"
+                  y="312"
+                  font-family="Cocogoose Classic Trial"
+                  font-size="350"
+                  font-weight="600"
+                  className="fill-brand-600"
+                  clipPath="url(#cachet-rise-clip)"
+                >
+                  CACHET
+                </motion.text>
+                <motion.path
+                  id="Rectangle"
+                  fill="#b0b0ac"
+                  fill-rule="evenodd"
+                  stroke="none"
+                  d="M 228 360 L 1161 360 L 1161 334 L 228 334 Z"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{
+                    duration: 0.85,
+                    ease: [0.22, 1, 0.36, 1],
+                    delay: 0.35,
+                  }}
+                  style={{
+                    originX: 0,
+                    transformBox: "fill-box",
+                    transformOrigin: "0% 50%",
+                  }}
+                />
+                <text
+                  x="228"
+                  y="435"
+                  font-family="Geoform"
+                  font-size="72"
+                  font-weight="700"
+                  className="fill-graphite-600"
+                  clipPath="url(#decorateurs-drop-clip)"
+                >
+                  PEINTRES DECORATEURS
+                </text>
+              </svg>
+            </div>
+            
             <motion.p
-              {...fadeUp(0.45)}
+              {...fadeUp(1.15)}
               className="p-4 mt-8 text-lg font-medium text-pretty text-white sm:text-xl/8 lg:text-2xl/8"
             >
               {subtitle}
             </motion.p>
 
-            <div
-              {...fadeUp(0.65)}
-              
+            <motion.div
+              {...fadeUp(1.25)}
               className="mt-10 flex items-center justify-center"
             >
               <motion.a
-              whileHover={{ scale: 1.075, transition: { duration: 0.1 } }}
-              transition={{ type: "spring", stiffness: 400, damping: 25, }}
+                whileHover={{ scale: 1.075, transition: { duration: 0.1 } }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 href={ctaHref}
                 className="rounded-md bg-[var(--color-brand-600)] px-3.5 py-2.5 text-lg font-light text-white shadow-xs hover:bg-[var(--color-brand-700)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand-600)]"
               >
                 {cta}
               </motion.a>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

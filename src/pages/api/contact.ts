@@ -5,8 +5,7 @@ import general from '@/content/settings/general.json';
 export const prerender = false;
 
 interface ContactBody {
-  firstName: string;
-  lastName: string;
+  fullName: string;
   email: string;
   phone: string;
   message: string;
@@ -16,10 +15,9 @@ function isValidBody(body: unknown): body is ContactBody {
   if (typeof body !== 'object' || body === null) return false;
   const b = body as Record<string, unknown>;
   return (
-    typeof b.firstName === 'string' && b.firstName.trim().length > 0 &&
-    typeof b.lastName === 'string' && b.lastName.trim().length > 0 &&
+    typeof b.fullName === 'string' && b.fullName.trim().length > 0 &&
     typeof b.email === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email) &&
-    typeof b.phone === 'string' && b.phone.trim().length > 0 &&
+    typeof b.phone === 'string' && /^[+\d][\d\s\-().]{6,19}$/.test(b.phone.trim()) &&
     typeof b.message === 'string' && b.message.trim().length > 0
   );
 }
@@ -37,14 +35,14 @@ function buildContactNotificationHtml(data: ContactBody): string {
     <div style="background:#ffffff;border-radius:0 0 8px 8px;overflow:hidden">
       <div style="padding:24px;background:#f0f4ef;border-bottom:2px solid #d6e2d4">
         <p style="margin:0;font-size:15px;color:#314732;font-weight:600">
-          Vous avez reçu un nouveau message de <strong>${data.firstName} ${data.lastName}</strong>.
+          Vous avez reçu un nouveau message de <strong>${data.fullName}</strong>.
         </p>
       </div>
       <table style="width:100%;border-collapse:collapse">
         <tbody>
           <tr>
             <td style="padding:8px 12px;color:#666;font-size:14px;border-bottom:1px solid #eee;width:40%">Nom</td>
-            <td style="padding:8px 12px;font-size:14px;border-bottom:1px solid #eee;font-weight:600">${data.firstName} ${data.lastName}</td>
+            <td style="padding:8px 12px;font-size:14px;border-bottom:1px solid #eee;font-weight:600">${data.fullName}</td>
           </tr>
           <tr>
             <td style="padding:8px 12px;color:#666;font-size:14px;border-bottom:1px solid #eee">Courriel</td>
@@ -61,7 +59,7 @@ function buildContactNotificationHtml(data: ContactBody): string {
         <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:16px;font-size:14px;color:#374151;line-height:1.6;white-space:pre-wrap">${data.message}</div>
       </div>
       <div style="padding:16px 20px 24px">
-        <a href="mailto:${data.email}?subject=Re: Message — Cachet Peintres Décorateurs" style="display:inline-block;padding:10px 24px;background:#314732;color:#fff;text-decoration:none;border-radius:4px;font-size:14px;font-weight:700">Répondre à ${data.firstName}</a>
+        <a href="mailto:${data.email}?subject=Re: Message — Cachet Peintres Décorateurs" style="display:inline-block;padding:10px 24px;background:#314732;color:#fff;text-decoration:none;border-radius:4px;font-size:14px;font-weight:700">Répondre à ${data.fullName}</a>
       </div>
     </div>
     <p style="margin:24px 0 0;text-align:center;font-size:11px;color:#999">
@@ -105,7 +103,7 @@ export const POST: APIRoute = async ({ request }) => {
       from: fromAddress,
       to: toAddress,
       replyTo: body.email,
-      subject: `Nouveau message — ${body.firstName} ${body.lastName}`,
+      subject: `Nouveau message — ${body.fullName}`,
       html: buildContactNotificationHtml(body),
     });
   } catch (e) {

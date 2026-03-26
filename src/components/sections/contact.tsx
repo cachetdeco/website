@@ -12,13 +12,11 @@ interface Props {
   addressValue: string
   serviceAreaLabel: string
   serviceArea: string
-  firstNameLabel?: string
-  lastNameLabel?: string
+  fullNameLabel?: string
   emailFieldLabel?: string
   phoneFieldLabel?: string
   messageLabel?: string
-  firstNamePlaceholder?: string
-  lastNamePlaceholder?: string
+  fullNamePlaceholder?: string
   emailPlaceholder?: string
   phonePlaceholder?: string
   messagePlaceholder?: string
@@ -26,8 +24,7 @@ interface Props {
 }
 
 interface ContactFields {
-  firstName: string
-  lastName: string
+  fullName: string
   email: string
   phone: string
   message: string
@@ -42,13 +39,11 @@ export default function Contact({
   addressValue,
   serviceAreaLabel,
   serviceArea,
-  firstNameLabel = 'Prénom',
-  lastNameLabel = 'Nom',
+  fullNameLabel = 'Nom complet',
   emailFieldLabel = 'Courriel',
   phoneFieldLabel = 'Téléphone',
   messageLabel = 'Message',
-  firstNamePlaceholder = 'Jean',
-  lastNamePlaceholder = 'Tremblay',
+  fullNamePlaceholder = 'Jean Tremblay',
   emailPlaceholder = 'nom@exemple.com',
   phonePlaceholder = '(514) 555-1234',
   messagePlaceholder = 'Décrivez votre projet...',
@@ -184,32 +179,18 @@ export default function Contact({
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} noValidate className="mt-0">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div>
-                <label htmlFor="first-name" className={labelClass}>{firstNameLabel}</label>
+              <div className="sm:col-span-2">
+                <label htmlFor="full-name" className={labelClass}>{fullNameLabel}</label>
                 <div className="mt-2.5">
                   <input
-                    id="first-name"
+                    id="full-name"
                     type="text"
-                    autoComplete="given-name"
-                    placeholder={firstNamePlaceholder}
-                    className={errors.firstName ? inputErrorClass : inputClass}
-                    {...register("firstName", { required: "Veuillez entrer votre prénom." })}
+                    autoComplete="name"
+                    placeholder={fullNamePlaceholder}
+                    className={errors.fullName ? inputErrorClass : inputClass}
+                    {...register("fullName", { required: "Veuillez entrer votre nom complet." })}
                   />
-                  {errors.firstName && <p className="mt-1.5 text-sm text-red-600 dark:text-red-400">{errors.firstName.message}</p>}
-                </div>
-              </div>
-              <div>
-                <label htmlFor="last-name" className={labelClass}>{lastNameLabel}</label>
-                <div className="mt-2.5">
-                  <input
-                    id="last-name"
-                    type="text"
-                    autoComplete="family-name"
-                    placeholder={lastNamePlaceholder}
-                    className={errors.lastName ? inputErrorClass : inputClass}
-                    {...register("lastName", { required: "Veuillez entrer votre nom." })}
-                  />
-                  {errors.lastName && <p className="mt-1.5 text-sm text-red-600 dark:text-red-400">{errors.lastName.message}</p>}
+                  {errors.fullName && <p className="mt-1.5 text-sm text-red-600 dark:text-red-400">{errors.fullName.message}</p>}
                 </div>
               </div>
               <div className="sm:col-span-2">
@@ -238,7 +219,10 @@ export default function Contact({
                     autoComplete="tel"
                     placeholder={phonePlaceholder}
                     className={errors.phone ? inputErrorClass : inputClass}
-                    {...register("phone", { required: "Veuillez entrer votre numéro de téléphone." })}
+                    {...register("phone", {
+                      required: "Veuillez entrer votre numéro de téléphone.",
+                      pattern: { value: /^[+\d][\d\s\-().]{6,19}$/, message: "Veuillez entrer un numéro de téléphone valide." },
+                    })}
                   />
                   {errors.phone && <p className="mt-1.5 text-sm text-red-600 dark:text-red-400">{errors.phone.message}</p>}
                 </div>
