@@ -79,48 +79,18 @@ export default function Hero({ content }: { content: HeroContent }) {
                 style={{ originY: "50%" }}
                 transition={{ delay: 0.85, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               />
-              <svg className="relative" viewBox="0 0 1390 500" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <clipPath id="cachet-rise-clip">
-                    <motion.rect
-                      x="0"
-                      initial={{  scaleY: 0 }}
-                      animate={{  scaleY: 1 }}
-                      style={{ originY: "100%" }}
-                      transition={{
-                        duration: 1,
-                        ease: [0.22, 1, 0.36, 1],
-                        delay: 0.85,
-                      }}
-                      height="334"
-                      width="1390"
-                    />
-                  </clipPath>
-                  <clipPath id="decorateurs-drop-clip">
-                    <motion.rect
-                      x="0"
-                      y="334"
-                      initial={{  scaleY: 0 }}
-                      animate={{  scaleY: 1 }}
-                      style={{ originY: "0%" }}
-                      transition={{
-                        duration: 1,
-                        ease: [0.22, 1, 0.36, 1],
-                        delay: .95,
-                      }}
-                      height="166"
-                      width="1390"
-                    />
-                  </clipPath>
-                </defs>
+              <svg
+                className="relative"
+                viewBox="0 0 1390 500"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <motion.text
                   x="3"
                   y="312"
                   fontFamily="Cocogoose"
                   fontSize="350"
-                  fontWeight="600"
                   className="fill-brand-600"
-                  clipPath="url(#cachet-rise-clip)"
+                  {...fadeUp(1.05)}
                 >
                   CACHET
                 </motion.text>
@@ -143,17 +113,18 @@ export default function Hero({ content }: { content: HeroContent }) {
                     transformOrigin: "0% 50%",
                   }}
                 />
-                <text
+                <motion.text
                   x="228"
                   y="435"
                   fontFamily="Geoform"
                   fontSize="72"
                   fontWeight="700"
                   className="fill-graphite-600"
-                  clipPath="url(#decorateurs-drop-clip)"
+                  {...fadeUp(1.05)}
+
                 >
                   PEINTRES DECORATEURS
-                </text>
+                </motion.text>
               </svg>
             </div>
             
