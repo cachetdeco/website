@@ -1,11 +1,12 @@
+
+
+import { motion } from "motion/react";
+import { FacebookEmbed } from 'react-social-media-embed';
+
 interface TestimonialItem {
   key: string;
   src: string;
-  height: number;
 }
-
-import { motion } from "motion/react";
-
 interface Props {
   sectionLabel: string;
   title: string;
@@ -19,7 +20,6 @@ const iframeProps = {
   allowFullScreen: true,
   allow: 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share',
   style: { border: 'none', overflow: 'hidden' } as React.CSSProperties,
-  className: 'w-full rounded-2xl',
 }
 
 const fadeUp = (delay: number) => ({
@@ -92,9 +92,10 @@ export default function Grid({ sectionLabel, title, items }: Props) {
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4 dark:text-gray-100">
           <motion.figure
             {...slideUp(0.05)}
-            className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10"
+            className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10"
           >
-            <iframe {...iframeProps} src={featured.src} height={featured.height} />
+            <FacebookEmbed url={featured.src} width="100%"  />
+
           </motion.figure>
           {groups.map((group, groupIdx) => (
             <div key={groupIdx} className="space-y-8 xl:contents xl:space-y-0">
@@ -109,9 +110,10 @@ export default function Grid({ sectionLabel, title, items }: Props) {
                   >
                     <motion.figure
                       {...slideUp(delay)}
-                      className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10"
+                      className={`rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10 overflow-hidden`}
                     >
-                      <iframe {...iframeProps} src={t.src} height={t.height} />
+                      
+                      <FacebookEmbed url={t.src} width="100%" />
                     </motion.figure>
                   </div>
                 )

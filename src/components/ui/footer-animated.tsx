@@ -14,6 +14,8 @@ type Props = {
   footer: {
     tagline: string;
     facebookLabel: string;
+    servicesTitle: string;
+    serviceLinks: { label: string; href: string }[];
     serviceAreasTitle: string;
     serviceAreas: string[];
     navTitle: string;
@@ -61,7 +63,7 @@ export default function FooterAnimated({
       whileInView="whileInView"
       viewport={{ amount: 0.2, once: false }}
     >
-      <div className="container-site grid grid-cols-1 gap-7 pb-12 min-[541px]:grid-cols-2 min-[541px]:gap-8 min-[901px]:grid-cols-[1.5fr_2fr_1fr_1fr] min-[901px]:gap-10">
+      <div className="container-site grid grid-cols-1 gap-7 pb-12 min-[541px]:grid-cols-2 min-[541px]:gap-8 min-[901px]:grid-cols-[1.5fr_1fr_1fr_1fr] min-[901px]:gap-10">
         <motion.div {...fadeUp(0)}>
           <motion.a {...hoverPop} href="/" aria-label={siteName}>
             <img
@@ -163,15 +165,18 @@ export default function FooterAnimated({
 
         <motion.div {...fadeUp(0.08)}>
           <h3 className="mb-[1.125rem] font-[family-name:var(--font-body)] text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-white/50">
-            {footer.serviceAreasTitle}
+            {footer.servicesTitle}
           </h3>
-          <ul className="m-0 list-none columns-2 gap-x-6 p-0 [&>li]:mb-2">
-            {footer.serviceAreas.map((area) => (
-              <li
-                key={area}
-                className="text-[0.875rem] text-white/70 break-inside-avoid"
-              >
-                {area}
+          <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
+            {footer.serviceLinks.map((item, idx) => (
+              <li key={`${item.label}-${idx}`}>
+                <motion.a
+                  {...hoverPop}
+                  href="/#services"
+                  className="inline-flex text-[0.9375rem] text-white/80 transition-colors hover:text-white"
+                >
+                  {item.label}
+                </motion.a>
               </li>
             ))}
           </ul>
@@ -260,6 +265,24 @@ export default function FooterAnimated({
               </svg>
               {address}
             </li>
+          </ul>
+        </motion.div>
+      </div>
+
+      <div className="container-site border-t border-white/15 pb-12 pt-10 min-[901px]:pt-12">
+        <motion.div {...fadeUp(0.12)}>
+          <h3 className="mb-[1.125rem] font-[family-name:var(--font-body)] text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-white/50">
+            {footer.serviceAreasTitle}
+          </h3>
+          <ul className="m-0 list-none columns-2 gap-x-6 p-0 sm:columns-3 lg:columns-5 [&>li]:mb-2">
+            {footer.serviceAreas.map((area) => (
+              <li
+                key={area}
+                className="text-[0.875rem] text-white/70 break-inside-avoid"
+              >
+                {area}
+              </li>
+            ))}
           </ul>
         </motion.div>
       </div>

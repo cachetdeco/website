@@ -1,6 +1,6 @@
 ---
-title: Peinture commerciale
-description: Solutions de peinture pour bureaux, commerces et espaces institutionnels. Travaux réalisés en dehors des heures d'ouverture pour minimiser les perturbations.
+title: Commerciale
+description: Solutions de peinture adaptées aux besoins des bureaux, des commerces et des institutions. Nos partenaires certifiés par la Commission de la Construction du Québec seront là pour vous guider dans un large éventail de projets.
 icon: commercial
 order: 3
 featured: true

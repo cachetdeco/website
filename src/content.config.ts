@@ -209,7 +209,6 @@ const testimonials = defineCollection({
       z.object({
         key: z.string(),
         src: z.string().url(),
-        height: z.number(),
       }),
     ),
   }),

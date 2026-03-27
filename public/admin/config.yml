@@ -347,7 +347,6 @@ collections:
         fields:
           - { name: "key", label: "Identifiant unique", widget: "string" }
           - { name: "src", label: "URL du post Facebook (embed)", widget: "string" }
-          - { name: "height", label: "Hauteur de l'iframe (px)", widget: "number" }
 
   - name: "settings"
     label: "Paramètres du site"
