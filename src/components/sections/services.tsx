@@ -44,11 +44,11 @@ export default function WithAlternatingSections({
         <div className="mx-auto max-w-3xl text-center">
           <motion.h2
             {...fadeUp}
-            className="text-4xl font-bold tracking-tight text-brand-600 sm:text-5xl"
+            className="text-4xl font-bold tracking-tight text-brand-600 sm:text-5xl lg:text-4xl"
           >
             {title}
           </motion.h2>
-          <motion.p {...fadeUp} className="mt-4 text-lg text-brand-500">
+          <motion.p {...fadeUp} className="mt-4 text-lg text-brand-500 lg:text-base">
             {subtitle}
           </motion.p>
         </div>
@@ -67,11 +67,11 @@ export default function WithAlternatingSections({
               >
                 <motion.h3
                   {...fadeUp}
-                  className="text-4xl font-semibold tracking-tight text-brand-600"
+                  className="text-4xl font-semibold tracking-tight text-brand-600 lg:text-3xl"
                 >
                   {feature.name}
                 </motion.h3>
-                <motion.p {...fadeUp} className="mt-2 text-base text-brand-800">
+                <motion.p {...fadeUp} className="mt-2 text-base text-brand-800 lg:text-[0.9375rem] lg:leading-relaxed font-[family-name:var(--font-body)]">
                   {feature.description}
                 </motion.p>
               </div>

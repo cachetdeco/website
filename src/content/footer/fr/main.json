@@ -4,9 +4,8 @@
   "servicesTitle": "Nos services",
   "contactTitle": "Contact",
   "serviceAreasTitle": "Zone de service",
-  "legal": "© {year} 9500-5609 Québec Inc. Tous droits réservés.",
+  "legal": "© {year} CACHETDECO. Tous droits réservés.",
   "rbq": "RBQ : 5839 8736 01",
-  "neq": "NEQ : 9500-5609",
   "facebookLabel": "Facebook",
   "serviceLinks": [
     { "label": "Peinture intérieure", "href": "/#services" },

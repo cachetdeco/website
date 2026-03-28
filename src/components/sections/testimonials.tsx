@@ -84,7 +84,7 @@ export default function Grid({ sectionLabel, title, items }: Props) {
           </motion.h2>
           <motion.p
             {...fadeUp(0.1)}
-            className="mt-2 text-4xl font-semibold tracking-tight text-balance text-brand-600 sm:text-5xl dark:text-white"
+            className="mt-2 text-4xl font-semibold tracking-tight text-balance text-brand-600 sm:text-5xl lg:text-4xl dark:text-white"
           >
             {title}
           </motion.p>

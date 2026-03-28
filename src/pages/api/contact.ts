@@ -63,7 +63,7 @@ function buildContactNotificationHtml(data: ContactBody): string {
       </div>
     </div>
     <p style="margin:24px 0 0;text-align:center;font-size:11px;color:#999">
-      Cachet Peintres Décorateurs · 9500-5609 Québec Inc · RBQ 5839 8736 01
+      Cachet Peintres Décorateurs · CACHETDECO · RBQ 5839 8736 01
     </p>
   </div>
 </body>

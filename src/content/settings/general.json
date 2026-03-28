@@ -1,7 +1,7 @@
 {
   "brandName": "Cachet",
   "siteName": "Cachet Peintres Décorateurs",
-  "legalName": "9500-5609 Québec Inc",
+  "legalName": "CACHETDECO",
   "tagline": "Peintres Décorateurs professionnels",
   "taglineHero": "Qualité et expertise en peinture résidentielle et commerciale",
   "phone": "(514) 552-1049",
@@ -11,11 +11,10 @@
   "fromAddressSubmission": "Cachet Peintres Décorateurs <notifications@mbcubeconsulting.ca>",
   "toAddressSubmission": "mouad@mbcubeconsulting.ca",
   "address": "Sainte Catherine, Québec",
-  "serviceArea": "Rive sud et Le Grand Montréal",
+  "serviceArea": "Rive Sud et Grand Montréal",
   "facebook": "https://www.facebook.com/cachetdecor/",
   "instagram": "https://www.instagram.com/cachet.deco/",
   "linkedin": "",
   "rbq": "5839 8736 01",
-  "neq": "9500-5609",
-  "carouselDelay": 2500
+  "carouselDelay": 4000
 }

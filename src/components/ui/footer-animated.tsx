@@ -21,7 +21,6 @@ type Props = {
     navTitle: string;
     contactTitle: string;
     rbq: string;
-    neq: string;
   };
   navLinks: NavLink[];
   legalNotice: string;
@@ -302,10 +301,8 @@ export default function FooterAnimated({
               MBCube Consulting
             </motion.a>
           </motion.p>
-          <p className="flex items-center gap-2.5 text-xs tracking-[0.02em] text-white/40">
+          <p className="text-xs tracking-[0.02em] text-white/40">
             <span>{footer.rbq}</span>
-            <span aria-hidden="true">·</span>
-            <span>{footer.neq}</span>
           </p>
         </div>
       </motion.div>

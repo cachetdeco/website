@@ -88,7 +88,7 @@ const contact = defineCollection({
     }),
     breadcrumbHome: z.string(),
     rbq: z.string(),
-    neq: z.string(),
+    neq: z.string().optional(),
   }),
 });
 
@@ -164,7 +164,7 @@ const footer = defineCollection({
     serviceAreasTitle: z.string(),
     legal: z.string(),
     rbq: z.string(),
-    neq: z.string(),
+    neq: z.string().optional(),
     facebookLabel: z.string(),
     serviceLinks: z.array(
       z.object({

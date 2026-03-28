@@ -1,6 +1,6 @@
 # Cachet Peintres Décorateurs — Site Web
 
-Site vitrine statique pour **Cachet Peintres Décorateurs** (9500-5609 Québec Inc).
+Site vitrine statique pour **Cachet Peintres Décorateurs** (CACHETDECO).
 Construit avec **Astro v5 + Tailwind v4 + Decap CMS**, déployé sur **Cloudflare Pages**.
 
 ## Stack
@@ -180,7 +180,6 @@ Aucune refactorisation structurelle n'est nécessaire — l'infrastructure est d
 
 Conformément aux exigences légales québécoises, les informations suivantes doivent apparaître visiblement sur le site :
 
-- **Raison sociale :** 9500-5609 Québec Inc
 - **Numéro RBQ :** 5839 8736 01 (obligatoire pour tout service nécessitant une modification d'un bâtiment)
 
 Ces informations sont affichées dans le footer de chaque page.

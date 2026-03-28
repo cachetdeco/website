@@ -44,13 +44,13 @@ const fadeUp = (delay: number) => ({
             <motion.h2
               {...fadeUp(0.15)}
               id="sale-heading"
-              className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
+              className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-5xl"
             >
               {title}
             </motion.h2>
             <motion.p
               {...fadeUp(0.3)}
-              className="mx-auto mt-4 max-w-xl text-xl text-white"
+              className="mx-auto mt-4 max-w-xl text-xl text-white lg:text-xl font-[family-name:var(--font-body)]"
             >
               {subtitle}
             </motion.p>

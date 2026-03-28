@@ -53,11 +53,11 @@ export default function FullWidthWithBackgroundImageAndLargeContent({
           <motion.h2
             {...fadeUp(0)}
             id="cta-heading"
-            className="text-3xl font-bold tracking-tight text-brand-50 sm:text-4xl lg:text-5xl"
+            className="text-3xl font-bold tracking-tight text-brand-50 sm:text-4xl lg:text-4xl"
           >
             {title}
           </motion.h2>
-          <motion.p {...fadeUp(0.1)} className="mt-4 text-lg text-brand-50/95 sm:text-xl">
+          <motion.p {...fadeUp(0.1)} className="mt-4 text-lg text-brand-50/95 sm:text-xl lg:text-lg font-[family-name:var(--font-body)]">
             {subtitle}
           </motion.p>
           <motion.a

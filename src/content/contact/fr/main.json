@@ -15,7 +15,7 @@
   "facebookCta": "Suivez-nous sur Facebook",
   "map": {
     "title": "Notre territoire de service",
-    "region": "Laval & Rive-Nord, Québec",
+    "region": "Rive Sud & Grand Montréal, Québec",
     "mapsButton": "Voir sur Google Maps"
   },
   "ctaCard": {
@@ -24,6 +24,5 @@
     "button": "Soumission gratuite"
   },
   "breadcrumbHome": "Accueil",
-  "rbq": "RBQ : ",
-  "neq": "NEQ : "
+  "rbq": "RBQ : "
 }

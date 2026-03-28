@@ -27,7 +27,7 @@ export default function Header({
         <div className="flex lg:flex-1">
           <a
             href="/"
-            className="flex items-center justify-center bg-[white] rounded-full shadow-md p-2"
+            className="flex items-center justify-center bg-[white] rounded-full shadow-md p-2 lg:translate-y-1.5"
           >
             <div className="rounded-full ">
               <span className="sr-only">{general.siteName}</span>
@@ -70,21 +70,21 @@ export default function Header({
             {ctaLabel}
           </a> */}
           <motion.dl
-            className="flex gap-x-2 items-center justify-center text-xl font-semibold bg-white rounded-full p-2"
+            className="m-0 inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-2 text-xl font-semibold font-[family-name:var(--font-body)]"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
-            <dt className="flex-none">
+            <dt className="m-0 flex shrink-0 items-center">
               <span className="sr-only">Telephone</span>
               <PhoneIcon
                 aria-hidden="true"
-                className="h-8 w-8 text-brand-600 "
+                className="h-8 w-8 text-brand-600"
               />
             </dt>
-            <dd>
+            <dd className="m-0 flex min-w-0 items-center justify-center">
               <a
                 href={phoneHref}
-                className="text-brand-600 hover:text-brand-700 "
+                className="whitespace-nowrap tabular-nums tracking-tight text-brand-600 hover:text-brand-700"
               >
                 {general.phone}
               </a>

@@ -49,7 +49,7 @@ export default function Hero({ content }: { content: HeroContent }) {
 
   return (
     <div className="bg-white dark:bg-gray-900">
-      <div className="relative isolate overflow-hidden h-screen min-h-[600px]">
+      <div className="relative isolate overflow-hidden h-screen min-h-[800px]">
         <Carousel
           className="absolute inset-0 -z-10 size-full [&_[data-slot='carousel-content']]:h-full"
           opts={{ loop: true, dragFree: false }}
@@ -63,22 +63,15 @@ export default function Hero({ content }: { content: HeroContent }) {
                   alt={slide.alt}
                   className="size-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/00 via-black/35 to-black/60" />
               </CarouselItem>
             ))}
           </CarouselContent>
         </Carousel>
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 h-full flex items-center justify-center pt-14">
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="mx-auto max-w-4xl text-center lg:mt-20">
             <div className="relative rounded-lg px-6 py-2">
-              <motion.div
-                className="absolute inset-0 rounded-lg bg-brand-50"
-                initial={{ opacity: 0, scaleY: 0 }}
-                animate={{ opacity: 1, scaleY: 1 }}
-                style={{ originY: "50%" }}
-                transition={{ delay: 0.85, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              />
               <svg
                 className="relative"
                 viewBox="0 0 1390 500"
@@ -89,7 +82,8 @@ export default function Hero({ content }: { content: HeroContent }) {
                   y="312"
                   fontFamily="Cocogoose"
                   fontSize="350"
-                  className="fill-brand-600"
+                  className="fill-brand-600 
+                  [text-shadow:0_1px_0_white,0_-1px_0_white,1px_0_0_white,-1px_0_0_white,1px_1px_0_white,-1px_-1px_0_white,1px_-1px_0_white,-1px_1px_0_white]"
                   {...fadeUp(1.05)}
                 >
                   CACHET
@@ -98,7 +92,8 @@ export default function Hero({ content }: { content: HeroContent }) {
                   id="Rectangle"
                   fill="#b0b0ac"
                   fillRule="evenodd"
-                  stroke="none"
+                  stroke="white"
+                  strokeWidth="2"
                   d="M 228 360 L 1161 360 L 1161 334 L 228 334 Z"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -119,9 +114,8 @@ export default function Hero({ content }: { content: HeroContent }) {
                   fontFamily="Geoform"
                   fontSize="72"
                   fontWeight="700"
-                  className="fill-graphite-600"
+                  className="fill-graphite-600 [text-shadow:0_1px_0_white,0_-1px_0_white,1px_0_0_white,-1px_0_0_white,1px_1px_0_white,-1px_-1px_0_white,1px_-1px_0_white,-1px_1px_0_white]"
                   {...fadeUp(1.05)}
-
                 >
                   PEINTRES DECORATEURS
                 </motion.text>
@@ -130,7 +124,7 @@ export default function Hero({ content }: { content: HeroContent }) {
             
             <motion.p
               {...fadeUp(1.15)}
-              className="p-4 mt-8 text-lg font-medium text-pretty text-white sm:text-xl/8 lg:text-2xl/8"
+              className="p-4 text-lg font-medium font-[family-name:var(--font-body)] text-pretty text-white sm:text-xl/8 lg:text-2xl/8"
             >
               {subtitle}
             </motion.p>

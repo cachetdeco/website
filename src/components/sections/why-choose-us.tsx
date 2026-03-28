@@ -75,7 +75,7 @@ export default function WithTieredImages({
               </motion.h2>
               <motion.p
                 {...fadeUp(0.1)}
-                className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl"
+                className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-4xl"
               >
                 {subtitle}
               </motion.p>
@@ -121,8 +121,8 @@ export default function WithTieredImages({
                     </svg>
                   </div>
                   <div>
-                    <dt className="text-base font-medium text-white">{card.title}</dt>
-                    <dd className="mt-3 text-base text-white/90">{card.description}</dd>
+                    <dt className="text-base font-medium text-white lg:text-[0.9375rem]">{card.title}</dt>
+                    <dd className="mt-3 text-base text-white/90 lg:text-[0.9375rem] lg:leading-relaxed font-[family-name:var(--font-body)]">{card.description}</dd>
                   </div>
                 </motion.div>
               ))}
