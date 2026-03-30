@@ -82,8 +82,11 @@ export default function Hero({ content }: { content: HeroContent }) {
                   y="312"
                   fontFamily="Cocogoose"
                   fontSize="350"
-                  className="fill-brand-600 
-                  [text-shadow:0_1px_0_white,0_-1px_0_white,1px_0_0_white,-1px_0_0_white,1px_1px_0_white,-1px_-1px_0_white,1px_-1px_0_white,-1px_1px_0_white]"
+                  stroke="white" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  className="fill-brand-600"
                   {...fadeUp(1.05)}
                 >
                   CACHET
@@ -92,8 +95,10 @@ export default function Hero({ content }: { content: HeroContent }) {
                   id="Rectangle"
                   fill="#b0b0ac"
                   fillRule="evenodd"
-                  stroke="white"
-                  strokeWidth="2"
+                  stroke="white" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
                   d="M 228 360 L 1161 360 L 1161 334 L 228 334 Z"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -114,14 +119,18 @@ export default function Hero({ content }: { content: HeroContent }) {
                   fontFamily="Geoform"
                   fontSize="72"
                   fontWeight="700"
-                  className="fill-graphite-600 [text-shadow:0_1px_0_white,0_-1px_0_white,1px_0_0_white,-1px_0_0_white,1px_1px_0_white,-1px_-1px_0_white,1px_-1px_0_white,-1px_1px_0_white]"
+                  className="fill-graphite-600"
+                  stroke="white" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
                   {...fadeUp(1.05)}
                 >
                   PEINTRES DECORATEURS
                 </motion.text>
               </svg>
             </div>
-            
+
             <motion.p
               {...fadeUp(1.15)}
               className="p-4 text-lg font-medium font-[family-name:var(--font-body)] text-pretty text-white sm:text-xl/8 lg:text-2xl/8"
