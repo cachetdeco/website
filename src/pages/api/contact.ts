@@ -70,7 +70,7 @@ function buildContactNotificationHtml(data: ContactBody): string {
 </html>`;
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   let body: unknown;
   try {
     body = await request.json();
@@ -88,7 +88,8 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const runtime = (locals as { runtime?: { env?: Record<string, string> } }).runtime;
+  const apiKey = runtime?.env?.RESEND_API_KEY;
   const toAddress = general.emailToContact?.trim();
   const fromAddress = general.emailFromContact?.trim();
   if (!apiKey || !toAddress || !fromAddress) {

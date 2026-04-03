@@ -1,4 +1,3 @@
-import { Buffer } from 'node:buffer';
 import type { APIRoute } from 'astro';
 import type { EmailAttachment } from '@/lib/email';
 import { sendEmail } from '@/lib/email';
@@ -144,7 +143,7 @@ function buildNotificationHtml(data: SubmissionPayload, attachmentNames: string[
 </html>`;
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   const contentType = request.headers.get('content-type') ?? '';
   if (!contentType.includes('multipart/form-data')) {
     return new Response(JSON.stringify({ success: false, error: 'Invalid Content-Type.' }), {
@@ -206,13 +205,16 @@ export const POST: APIRoute = async ({ request }) => {
     const safeName = sanitizeFilename(file.name);
     attachmentNames.push(safeName);
     const buf = await file.arrayBuffer();
+    const bytes = new Uint8Array(buf);
+    const binary = bytes.reduce((acc, b) => acc + String.fromCharCode(b), '');
     attachments.push({
       filename: safeName,
-      content: Buffer.from(buf).toString('base64'),
+      content: btoa(binary),
     });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const runtime = (locals as { runtime?: { env?: Record<string, string> } }).runtime;
+  const apiKey = runtime?.env?.RESEND_API_KEY;
   const fromAddress = general.fromAddressSubmission?.trim();
   const toAddress = general.toAddressSubmission?.trim();
 
