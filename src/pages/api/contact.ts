@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { env } from 'cloudflare:workers';
 import { sendEmail } from '@/lib/email';
 import general from '@/content/settings/general.json';
 
@@ -70,7 +71,7 @@ function buildContactNotificationHtml(data: ContactBody): string {
 </html>`;
 }
 
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
   let body: unknown;
   try {
     body = await request.json();
@@ -88,8 +89,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     });
   }
 
-  const runtime = (locals as { runtime?: { env?: Record<string, string> } }).runtime;
-  const apiKey = runtime?.env?.RESEND_API_KEY;
+  const apiKey = (env as unknown as Record<string, string>).RESEND_API_KEY;
   const toAddress = general.emailToContact?.trim();
   const fromAddress = general.emailFromContact?.trim();
   if (!apiKey || !toAddress || !fromAddress) {

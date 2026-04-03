@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { env } from 'cloudflare:workers';
 import type { EmailAttachment } from '@/lib/email';
 import { sendEmail } from '@/lib/email';
 import general from '@/content/settings/general.json';
@@ -143,7 +144,7 @@ function buildNotificationHtml(data: SubmissionPayload, attachmentNames: string[
 </html>`;
 }
 
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
   const contentType = request.headers.get('content-type') ?? '';
   if (!contentType.includes('multipart/form-data')) {
     return new Response(JSON.stringify({ success: false, error: 'Invalid Content-Type.' }), {
@@ -213,8 +214,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     });
   }
 
-  const runtime = (locals as { runtime?: { env?: Record<string, string> } }).runtime;
-  const apiKey = runtime?.env?.RESEND_API_KEY;
+  const apiKey = (env as unknown as Record<string, string>).RESEND_API_KEY;
   const fromAddress = general.fromAddressSubmission?.trim();
   const toAddress = general.toAddressSubmission?.trim();
 

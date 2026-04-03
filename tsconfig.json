@@ -5,7 +5,8 @@
     "paths": {
       "@/*": ["src/*"]
     },
-      "jsx": "react-jsx",
-      "jsxImportSource": "react"
+    "types": ["@cloudflare/workers-types"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
