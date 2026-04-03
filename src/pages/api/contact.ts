@@ -4,6 +4,7 @@ import { sendEmail } from '@/lib/email';
 import general from '@/content/settings/general.json';
 
 export const prerender = false;
+const apiKey = (env as any).RESEND_API_KEY;
 
 interface ContactBody {
   fullName: string;
@@ -89,7 +90,6 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  const apiKey = (env as unknown as Record<string, string>).RESEND_API_KEY;
   const toAddress = general.emailToContact?.trim();
   const fromAddress = general.emailFromContact?.trim();
   if (!apiKey || !toAddress || !fromAddress) {
