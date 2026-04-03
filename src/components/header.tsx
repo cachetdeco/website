@@ -34,6 +34,14 @@ export default function Header({
       lastScrollY.current = currentY;
     };
 
+    // Sync state with the actual scroll position on mount
+    const initialY = window.scrollY;
+    lastScrollY.current = initialY;
+    setIsScrolled(initialY > 10);
+    if (initialY > 80) {
+      setIsVisible(false);
+    }
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
