@@ -5,7 +5,6 @@ import { sendEmail } from '@/lib/email';
 import general from '@/content/settings/general.json';
 
 export const prerender = false;
-const apiKey = (env as any).RESEND_API_KEY;
 
 const MAX_TOTAL_BYTES = 20 * 1024 * 1024;
 
@@ -215,6 +214,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
+  const apiKey = (env as unknown as Record<string, string>).RESEND_API_KEY;
   const fromAddress = general.fromAddressSubmission?.trim();
   const toAddress = general.toAddressSubmission?.trim();
 
