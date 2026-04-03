@@ -1,9 +1,25 @@
 {
   "links": [
-    { "name": "Accueil", "href": "/" },
-    { "name": "Services", "href": "/#services" },
-    { "name": "Contact", "href": "/contact" },
-    { "name": "Soumission", "href": "/submission" }
+    {
+      "name": "Accueil",
+      "href": "/"
+    },
+    {
+      "name": "Services",
+      "href": "/#services"
+    },
+    {
+      "name": "Contact",
+      "href": "/contact"
+    },
+    {
+      "name": "Soumission",
+      "href": "/submission"
+    },
+    {
+      "name": "Blog",
+      "href": "/blog"
+    }
   ],
   "cta": {
     "label": "Soumission gratuite",
