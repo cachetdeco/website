@@ -2,9 +2,6 @@ backend:
   name: github
   repo: mbcube/cachetdeco   # REPLACE with your GitHub org/repo
   branch: cloudflare
-  # For Cloudflare Pages (no Netlify Identity), use PKCE flow:
-  auth_type: pkce
-  app_id: YOUR_GITHUB_OAUTH_APP_CLIENT_ID   # REPLACE with your GitHub OAuth App client ID
 
 locale: fr
 media_folder: "public/images"
