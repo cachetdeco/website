@@ -1,4 +1,5 @@
-{
+{  
+  "title": "Navigation",
   "links": [
     {
       "name": "Accueil",
@@ -15,10 +16,6 @@
     {
       "name": "Soumission",
       "href": "/submission"
-    },
-    {
-      "name": "Blog",
-      "href": "/blog"
     }
   ],
   "cta": {
