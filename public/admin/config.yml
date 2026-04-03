@@ -1,9 +1,9 @@
 backend:
   name: github
-  repo: mbcube/cachetdeco   # REPLACE with your GitHub org/repo
+  repo: mbcube/cachetdeco
   branch: cloudflare
-  site_domaine: https://cachetdeco.br-mouad.workers.dev/
-  base_url: https://cachetdeco.br-mouad.workers.dev/
+  base_url: https://cachetdeco.br-mouad.workers.dev
+  auth_endpoint: /api/auth
 
 locale: fr
 media_folder: "public/images"
