@@ -93,7 +93,7 @@ export const POST: APIRoute = async ({ request }) => {
   const toAddress = general.emailToContact?.trim();
   const fromAddress = general.emailFromContact?.trim();
   if (!apiKey || !toAddress || !fromAddress) {
-    return new Response(JSON.stringify({ success: false, error: 'Server configuration missing.' }), {
+    return new Response(JSON.stringify({ success: false, error: 'Server configuration missing.', apiKey, toAddress, fromAddress }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
