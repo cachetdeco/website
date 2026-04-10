@@ -2,7 +2,7 @@ backend:
   name: github
   repo: mbcube/cachetdeco
   branch: cloudflare
-  base_url: https://cachetdeco.br-mouad.workers.dev
+  base_url: https://cachetdeco.ca
   auth_endpoint: /api/auth
 
 locale: fr
@@ -25,18 +25,47 @@ collections:
     slug: "{{slug}}"
     fields:
       - { name: "title", label: "Titre", widget: "string", i18n: true }
-      - { name: "description", label: "Description courte", widget: "text", i18n: true }
+      - {
+          name: "description",
+          label: "Description courte",
+          widget: "text",
+          i18n: true,
+        }
       - name: "icon"
         label: "Icône (identifiant)"
         widget: "select"
-        options: ["interior", "exterior", "commercial", "decoration", "renovation"]
+        options:
+          ["interior", "exterior", "commercial", "decoration", "renovation"]
         required: false
         i18n: duplicate
         hint: "Identifiant interne pour l'icône SVG"
-      - { name: "image", label: "Image de couverture", widget: "image", required: false, i18n: duplicate }
-      - { name: "order", label: "Ordre d'affichage", widget: "number", default: 0, i18n: duplicate }
-      - { name: "featured", label: "Mis en vedette", widget: "boolean", default: false, i18n: duplicate }
-      - { name: "body", label: "Contenu détaillé", widget: "markdown", i18n: true }
+      - {
+          name: "image",
+          label: "Image de couverture",
+          widget: "image",
+          required: false,
+          i18n: duplicate,
+        }
+      - {
+          name: "order",
+          label: "Ordre d'affichage",
+          widget: "number",
+          default: 0,
+          i18n: duplicate,
+        }
+      - {
+          name: "featured",
+          label: "Mis en vedette",
+          widget: "boolean",
+          default: false,
+          i18n: duplicate,
+        }
+      - {
+          name: "body",
+          label: "Contenu détaillé",
+          widget: "markdown",
+          i18n: true,
+        }
 
   - name: "navigation"
     label: "Navigation"
@@ -89,11 +118,26 @@ collections:
     i18n: true
     slug: "{{slug}}"
     fields:
-      - { name: "pillCta", label: "Texte pastille (CTA)", widget: "string", i18n: true }
-      - { name: "title", label: "Titre principal", widget: "string", i18n: true }
+      - {
+          name: "pillCta",
+          label: "Texte pastille (CTA)",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "title",
+          label: "Titre principal",
+          widget: "string",
+          i18n: true,
+        }
       - { name: "subtitle", label: "Sous-titre", widget: "text", i18n: true }
       - { name: "cta", label: "Bouton principal", widget: "string", i18n: true }
-      - { name: "ctaHref", label: "Lien du bouton", widget: "string", i18n: duplicate }
+      - {
+          name: "ctaHref",
+          label: "Lien du bouton",
+          widget: "string",
+          i18n: duplicate,
+        }
 
   - name: "cta"
     label: "Bannière CTA"
@@ -107,9 +151,24 @@ collections:
     fields:
       - { name: "title", label: "Titre", widget: "string", i18n: true }
       - { name: "subtitle", label: "Sous-titre", widget: "text", i18n: true }
-      - { name: "button", label: "Libellé du bouton", widget: "string", i18n: true }
-      - { name: "buttonHref", label: "Lien du bouton", widget: "string", i18n: duplicate }
-      - { name: "imageAlt", label: "Texte alternatif image", widget: "string", i18n: true }
+      - {
+          name: "button",
+          label: "Libellé du bouton",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "buttonHref",
+          label: "Lien du bouton",
+          widget: "string",
+          i18n: duplicate,
+        }
+      - {
+          name: "imageAlt",
+          label: "Texte alternatif image",
+          widget: "string",
+          i18n: true,
+        }
 
   - name: "contact"
     label: "Page Contact"
@@ -123,10 +182,30 @@ collections:
     fields:
       - { name: "title", label: "Titre", widget: "string", i18n: true }
       - { name: "subtitle", label: "Sous-titre", widget: "text", i18n: true }
-      - { name: "phone", label: "Libellé téléphone", widget: "string", i18n: true }
-      - { name: "email", label: "Libellé courriel", widget: "string", i18n: true }
-      - { name: "address", label: "Libellé adresse", widget: "string", i18n: true }
-      - { name: "serviceAreaLabel", label: "Libellé zone desservie", widget: "string", i18n: true }
+      - {
+          name: "phone",
+          label: "Libellé téléphone",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "email",
+          label: "Libellé courriel",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "address",
+          label: "Libellé adresse",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "serviceAreaLabel",
+          label: "Libellé zone desservie",
+          widget: "string",
+          i18n: true,
+        }
       - name: "hours"
         label: "Heures"
         widget: "object"
@@ -151,8 +230,18 @@ collections:
             fields:
               - { name: "day", label: "Jour", widget: "string" }
               - { name: "time", label: "Heures", widget: "string" }
-      - { name: "follow", label: "Réseaux (titre)", widget: "string", i18n: true }
-      - { name: "facebookCta", label: "Lien Facebook (texte)", widget: "string", i18n: true }
+      - {
+          name: "follow",
+          label: "Réseaux (titre)",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "facebookCta",
+          label: "Lien Facebook (texte)",
+          widget: "string",
+          i18n: true,
+        }
       - name: "map"
         label: "Carte"
         widget: "object"
@@ -160,7 +249,11 @@ collections:
         fields:
           - { name: "title", label: "Titre", widget: "string" }
           - { name: "region", label: "Région", widget: "string" }
-          - { name: "mapsButton", label: "Bouton Google Maps", widget: "string" }
+          - {
+              name: "mapsButton",
+              label: "Bouton Google Maps",
+              widget: "string",
+            }
       - name: "ctaCard"
         label: "Encadré soumission"
         widget: "object"
@@ -169,7 +262,12 @@ collections:
           - { name: "title", label: "Titre", widget: "string" }
           - { name: "description", label: "Description", widget: "text" }
           - { name: "button", label: "Bouton", widget: "string" }
-      - { name: "breadcrumbHome", label: "Fil d'Ariane — Accueil", widget: "string", i18n: true }
+      - {
+          name: "breadcrumbHome",
+          label: "Fil d'Ariane — Accueil",
+          widget: "string",
+          i18n: true,
+        }
 
   - name: "submission"
     label: "Page Soumission & formulaire"
@@ -181,7 +279,12 @@ collections:
     i18n: true
     slug: "{{slug}}"
     fields:
-      - { name: "pageTitle", label: "Titre court (breadcrumb)", widget: "string", i18n: true }
+      - {
+          name: "pageTitle",
+          label: "Titre court (breadcrumb)",
+          widget: "string",
+          i18n: true,
+        }
       - { name: "title", label: "Titre H1", widget: "string", i18n: true }
       - { name: "subtitle", label: "Sous-titre", widget: "text", i18n: true }
       - name: "form"
@@ -189,17 +292,53 @@ collections:
         widget: "object"
         i18n: true
         fields:
-          - { name: "ariaLabel", label: "Aria-label formulaire", widget: "string" }
-          - { name: "fullNameLabel", label: "Libellé nom complet", widget: "string" }
-          - { name: "fullNamePlaceholder", label: "Placeholder nom", widget: "string" }
+          - {
+              name: "ariaLabel",
+              label: "Aria-label formulaire",
+              widget: "string",
+            }
+          - {
+              name: "fullNameLabel",
+              label: "Libellé nom complet",
+              widget: "string",
+            }
+          - {
+              name: "fullNamePlaceholder",
+              label: "Placeholder nom",
+              widget: "string",
+            }
           - { name: "emailLabel", label: "Libellé courriel", widget: "string" }
-          - { name: "emailPlaceholder", label: "Placeholder courriel", widget: "string" }
+          - {
+              name: "emailPlaceholder",
+              label: "Placeholder courriel",
+              widget: "string",
+            }
           - { name: "phoneLabel", label: "Libellé téléphone", widget: "string" }
-          - { name: "phonePlaceholder", label: "Placeholder téléphone", widget: "string" }
-          - { name: "workAddressLabel", label: "Libellé adresse travaux", widget: "string" }
-          - { name: "workAddressPlaceholder", label: "Placeholder adresse", widget: "string" }
-          - { name: "serviceTypeLabel", label: "Libellé type de service", widget: "string" }
-          - { name: "serviceTypePlaceholder", label: "Placeholder sélection", widget: "string" }
+          - {
+              name: "phonePlaceholder",
+              label: "Placeholder téléphone",
+              widget: "string",
+            }
+          - {
+              name: "workAddressLabel",
+              label: "Libellé adresse travaux",
+              widget: "string",
+            }
+          - {
+              name: "workAddressPlaceholder",
+              label: "Placeholder adresse",
+              widget: "string",
+            }
+          - {
+              name: "serviceTypeLabel",
+              label: "Libellé type de service",
+              widget: "string",
+            }
+          - {
+              name: "serviceTypePlaceholder",
+              label: "Placeholder sélection",
+              widget: "string",
+            }
           - name: "serviceTypeOptions"
             label: "Options type de service"
             widget: "object"
@@ -210,15 +349,39 @@ collections:
               - { name: "decoration", label: "Décoration", widget: "string" }
               - { name: "other", label: "Autre", widget: "string" }
           - { name: "messageLabel", label: "Libellé message", widget: "string" }
-          - { name: "messagePlaceholder", label: "Placeholder message", widget: "text" }
-          - { name: "attachmentsLabel", label: "Libellé pièces jointes", widget: "string" }
-          - { name: "attachmentsHint", label: "Aide zone dépôt", widget: "string" }
-          - { name: "attachmentsAccepted", label: "Formats acceptés", widget: "string" }
-          - { name: "attachmentsRemove", label: "Retirer fichier (aria)", widget: "string" }
+          - {
+              name: "messagePlaceholder",
+              label: "Placeholder message",
+              widget: "text",
+            }
+          - {
+              name: "attachmentsLabel",
+              label: "Libellé pièces jointes",
+              widget: "string",
+            }
+          - {
+              name: "attachmentsHint",
+              label: "Aide zone dépôt",
+              widget: "string",
+            }
+          - {
+              name: "attachmentsAccepted",
+              label: "Formats acceptés",
+              widget: "string",
+            }
+          - {
+              name: "attachmentsRemove",
+              label: "Retirer fichier (aria)",
+              widget: "string",
+            }
           - { name: "submitLabel", label: "Bouton envoyer", widget: "string" }
           - { name: "submittingLabel", label: "État envoi", widget: "string" }
           - { name: "successTitle", label: "Succès — titre", widget: "string" }
-          - { name: "successMessage", label: "Succès — message", widget: "text" }
+          - {
+              name: "successMessage",
+              label: "Succès — message",
+              widget: "text",
+            }
           - { name: "errorTitle", label: "Erreur — titre", widget: "string" }
           - { name: "errorMessage", label: "Erreur — message", widget: "text" }
           - name: "validation"
@@ -230,8 +393,16 @@ collections:
               - { name: "phone", label: "Téléphone", widget: "string" }
               - { name: "serviceType", label: "Type service", widget: "string" }
               - { name: "message", label: "Message", widget: "string" }
-              - { name: "attachmentsType", label: "Type fichier", widget: "string" }
-              - { name: "attachmentsSize", label: "Taille fichiers", widget: "string" }
+              - {
+                  name: "attachmentsType",
+                  label: "Type fichier",
+                  widget: "string",
+                }
+              - {
+                  name: "attachmentsSize",
+                  label: "Taille fichiers",
+                  widget: "string",
+                }
       - name: "sidebar"
         label: "Barre latérale"
         widget: "object"
@@ -245,9 +416,18 @@ collections:
             fields:
               - { name: "title", label: "Titre", widget: "string" }
               - { name: "description", label: "Description", widget: "text" }
-          - { name: "directContactTitle", label: "Contact direct (titre)", widget: "string" }
+          - {
+              name: "directContactTitle",
+              label: "Contact direct (titre)",
+              widget: "string",
+            }
           - { name: "rbqLabel", label: "Libellé RBQ", widget: "string" }
-      - { name: "breadcrumbHome", label: "Fil d'Ariane — Accueil", widget: "string", i18n: true }
+      - {
+          name: "breadcrumbHome",
+          label: "Fil d'Ariane — Accueil",
+          widget: "string",
+          i18n: true,
+        }
 
   - name: "footer"
     label: "Pied de page"
@@ -260,14 +440,44 @@ collections:
     slug: "{{slug}}"
     fields:
       - { name: "tagline", label: "Slogan", widget: "string", i18n: true }
-      - { name: "navTitle", label: "Titre colonne navigation", widget: "string", i18n: true }
-      - { name: "servicesTitle", label: "Titre colonne services", widget: "string", i18n: true }
-      - { name: "contactTitle", label: "Titre colonne contact", widget: "string", i18n: true }
-      - { name: "serviceAreasTitle", label: "Titre colonne zones de service", widget: "string", i18n: true }
-      - { name: "legal", label: "Mention légale (utiliser {year})", widget: "string", i18n: true }
+      - {
+          name: "navTitle",
+          label: "Titre colonne navigation",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "servicesTitle",
+          label: "Titre colonne services",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "contactTitle",
+          label: "Titre colonne contact",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "serviceAreasTitle",
+          label: "Titre colonne zones de service",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "legal",
+          label: "Mention légale (utiliser {year})",
+          widget: "string",
+          i18n: true,
+        }
       - { name: "rbq", label: "Ligne RBQ", widget: "string", i18n: true }
       - { name: "neq", label: "Ligne NEQ", widget: "string", i18n: true }
-      - { name: "facebookLabel", label: "Libellé Facebook", widget: "string", i18n: true }
+      - {
+          name: "facebookLabel",
+          label: "Libellé Facebook",
+          widget: "string",
+          i18n: true,
+        }
       - name: "serviceLinks"
         label: "Liens services (pied)"
         widget: "list"
@@ -293,7 +503,12 @@ collections:
     fields:
       - { name: "title", label: "Titre", widget: "string", i18n: true }
       - { name: "message", label: "Message", widget: "text", i18n: true }
-      - { name: "home", label: "Lien retour accueil", widget: "string", i18n: true }
+      - {
+          name: "home",
+          label: "Lien retour accueil",
+          widget: "string",
+          i18n: true,
+        }
 
   - name: "pourquoi"
     label: "Pourquoi nous choisir"
@@ -305,7 +520,12 @@ collections:
     i18n: true
     slug: "{{slug}}"
     fields:
-      - { name: "title", label: "Titre de section", widget: "string", i18n: true }
+      - {
+          name: "title",
+          label: "Titre de section",
+          widget: "string",
+          i18n: true,
+        }
       - { name: "subtitle", label: "Sous-titre", widget: "string", i18n: true }
       - name: "cards"
         label: "Cartes d'avantages"
@@ -337,15 +557,29 @@ collections:
     i18n: true
     slug: "{{slug}}"
     fields:
-      - { name: "sectionLabel", label: "Libellé de section", widget: "string", i18n: true }
-      - { name: "title", label: "Titre de section", widget: "string", i18n: true }
+      - {
+          name: "sectionLabel",
+          label: "Libellé de section",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          name: "title",
+          label: "Titre de section",
+          widget: "string",
+          i18n: true,
+        }
       - name: "items"
         label: "Témoignages"
         widget: "list"
         i18n: true
         fields:
           - { name: "key", label: "Identifiant unique", widget: "string" }
-          - { name: "src", label: "URL du post Facebook (embed)", widget: "string" }
+          - {
+              name: "src",
+              label: "URL du post Facebook (embed)",
+              widget: "string",
+            }
 
   - name: "settings"
     label: "Paramètres du site"
@@ -360,15 +594,41 @@ collections:
           - { name: "taglineHero", label: "Slogan hero", widget: "string" }
           - { name: "phone", label: "Téléphone", widget: "string" }
           - { name: "email", label: "Courriel", widget: "string" }
-          - { name: "emailFromContact", label: "Expéditeur courriel (formulaire contact, ex. Nom <adresse@domaine>)", widget: "string" }
-          - { name: "emailToContact", label: "Destinataire courriel (formulaire contact)", widget: "string" }
-          - { name: "fromAddressSubmission", label: "Expéditeur courriel (formulaire soumission, ex. Nom <adresse@domaine>)", widget: "string" }
-          - { name: "toAddressSubmission", label: "Destinataire courriel (formulaire soumission)", widget: "string" }
+          - {
+              name: "emailFromContact",
+              label: "Expéditeur courriel (formulaire contact, ex. Nom <adresse@domaine>)",
+              widget: "string",
+            }
+          - {
+              name: "emailToContact",
+              label: "Destinataire courriel (formulaire contact)",
+              widget: "string",
+            }
+          - {
+              name: "fromAddressSubmission",
+              label: "Expéditeur courriel (formulaire soumission, ex. Nom <adresse@domaine>)",
+              widget: "string",
+            }
+          - {
+              name: "toAddressSubmission",
+              label: "Destinataire courriel (formulaire soumission)",
+              widget: "string",
+            }
           - { name: "address", label: "Adresse", widget: "string" }
           - { name: "serviceArea", label: "Zone de service", widget: "string" }
           - { name: "facebook", label: "Lien Facebook", widget: "string" }
-          - { name: "instagram", label: "Lien Instagram", widget: "string", required: false }
-          - { name: "linkedin", label: "Lien LinkedIn (vide = masqué)", widget: "string", required: false }
+          - {
+              name: "instagram",
+              label: "Lien Instagram",
+              widget: "string",
+              required: false,
+            }
+          - {
+              name: "linkedin",
+              label: "Lien LinkedIn (vide = masqué)",
+              widget: "string",
+              required: false,
+            }
           - { name: "rbq", label: "Numéro RBQ", widget: "string" }
           - { name: "neq", label: "Numéro NEQ (Registraire)", widget: "string" }
 
@@ -376,8 +636,29 @@ collections:
         name: "seo"
         file: "src/content/settings/seo.json"
         fields:
-          - { name: "defaultTitle", label: "Titre par défaut", widget: "string" }
-          - { name: "titleTemplate", label: "Gabarit de titre (%s = titre de page)", widget: "string" }
-          - { name: "defaultDescription", label: "Description par défaut", widget: "text" }
-          - { name: "keywords", label: "Mots-clés (séparés par virgule)", widget: "string" }
-          - { name: "ogImage", label: "Image OG par défaut", widget: "image", required: false }
+          - {
+              name: "defaultTitle",
+              label: "Titre par défaut",
+              widget: "string",
+            }
+          - {
+              name: "titleTemplate",
+              label: "Gabarit de titre (%s = titre de page)",
+              widget: "string",
+            }
+          - {
+              name: "defaultDescription",
+              label: "Description par défaut",
+              widget: "text",
+            }
+          - {
+              name: "keywords",
+              label: "Mots-clés (séparés par virgule)",
+              widget: "string",
+            }
+          - {
+              name: "ogImage",
+              label: "Image OG par défaut",
+              widget: "image",
+              required: false,
+            }
