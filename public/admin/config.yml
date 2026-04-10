@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: mbcube/cachetdeco
+  repo: cachetdeco/website
   branch: main
   base_url: https://cachetdeco.ca
   auth_endpoint: /api/auth
