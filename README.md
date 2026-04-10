@@ -16,7 +16,7 @@ Construit avec **Astro v5 + Tailwind v4 + Decap CMS**, déployé sur **Cloudflar
 
 ## Prérequis
 
-- Node.js ≥ 18
+- Node.js ≥ 24
 - npm ≥ 9
 
 ## Installation locale
