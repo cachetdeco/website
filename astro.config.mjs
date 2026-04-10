@@ -6,9 +6,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare({
-    compatibilityDate: '2025-10-08',
-  }),
+  adapter: cloudflare(),
   site: 'https://cachetdeco.com',
   i18n: {
     defaultLocale: 'fr',
